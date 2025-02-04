@@ -33,7 +33,7 @@ export default function Education() {
       <div className="container mx-auto px-6 lg:px-20 mt-12">
         <div className="bg-gray-100 text-black p-8 rounded-xl shadow-lg border border-gray-300">
           <h3 className="text-4xl font-semibold mb-3">
-            Fast University of Sciences and Technology, Karachi
+            KIET University of Sciences and Technology, Karachi
           </h3>
           <h4 className="text-2xl text-gray-600 mb-4">Bachelor's in Cyber Security</h4>
 
@@ -42,8 +42,8 @@ export default function Education() {
             <li>⚡ Gained extensive knowledge through rigorous CS courses like Data Structures, Algorithms, DBMS, OS, and Machine Learning.</li>
             <li>⚡ Explored the software development cycle with courses like Software Requirements Engineering, Software Design & Architecture.</li>
             <li>⚡ Learned MERN Stack Development and deep-dived into the www world :)</li>
-            <li>⚡ The supportive environment at FAST helped in personal growth, fostering diversity and confidence.</li>
-            <li>⚡ Managed and led tech communities like HackClub FAST, GDSC, IEEE-FAST, and FAST Media Club, making a mark in the ecosystem.</li>
+            <li>⚡ The supportive environment at KIET helped in personal growth, fostering diversity and confidence.</li>
+            <li>⚡ Managed and led tech communities like HackClub KIET, GDSC, IEEE-KIET, and KIET Media Club, making a mark in the ecosystem.</li>
           </ul>
         </div>
       </div>
