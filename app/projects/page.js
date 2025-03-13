@@ -39,16 +39,22 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen bg-white text-black font-sans flex flex-col items-center justify-center py-16">
-      
       {/* Top Section - Funky Text & Image */}
       <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
-        
         {/* Left Side - Funky Text */}
         <div className="lg:w-1/2 text-left">
-          <h2 className="text-5xl font-bold mb-4">Education 🎓</h2>
+          <h2 className="text-5xl font-bold mb-4">Projects 🎓</h2>
           <p className="text-2xl text-gray-700">
-            My Qualifications and Certifications <br />
-            Here's what you need to know about my academic background 🙃
+            With a deep understanding of React, Next.js, Redux, Node.js,
+            Express, GraphQL and MongoDB, my expertise lies in developing robust
+            and scalable web applications. By harnessing the power of these
+            technologies, I create engaging user interfaces that deliver
+            exceptional experiences, effectively manage complex application
+            states to ensure seamless data flow, develop efficient server-side
+            APIs and design efficient data models and ensure secure data
+            storage. My proficiency in these technologies enables me to deliver
+            high-quality applications that meet the demands of modern web
+            development. 🫡 🙃
           </p>
         </div>
 
@@ -63,42 +69,43 @@ export default function Projects() {
           />
         </div>
       </div>
-
-
-
-
-    <section className="p-8 bg-gray-100 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Projects</h2>
-          <button
-            onClick={() => setShowProjects(!showProjects)}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md"
-          >
-            {showProjects ? '-' : '+'}
-          </button>
-        </div>
-        {showProjects && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white p-6 shadow-lg rounded-lg">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-gray-700 mt-2">{project.description}</p>
-                <p className="text-sm text-gray-500 mt-1">Created in {project.date}</p>
-                <div className="flex gap-2 mt-3">
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className="bg-gray-200 px-3 py-1 text-sm rounded-full">{tech}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
+      <section className="p-8 bg-gray-100 min-h-screen">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">Projects</h2>
+            <button
+              onClick={() => setShowProjects(!showProjects)}
+              className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            >
+              {showProjects ? "-" : "+"}
+            </button>
           </div>
-        )}
-      </div>
-    </section>
-  );
-
-
+          {showProjects && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {projects.map((project, index) => (
+                <div key={index} className="bg-white p-6 shadow-lg rounded-lg">
+                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <p className="text-gray-700 mt-2">{project.description}</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Created in {project.date}
+                  </p>
+                  <div className="flex gap-2 mt-3">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="bg-gray-200 px-3 py-1 text-sm rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+      );
     </div>
   );
 }
