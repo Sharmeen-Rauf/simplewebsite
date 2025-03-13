@@ -1,7 +1,15 @@
 "use client";
 import Image from "next/image";
 
+     import { useState } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa"; // Import icons
+
+
+
 export default function Experience() {
+
+    const [isVisible, setIsVisible] = useState(false);
+
   return (
     <div className="min-h-screen bg-white text-black font-sans flex flex-col items-center justify-center py-16">
       
@@ -31,42 +39,48 @@ export default function Experience() {
       </div>
 
       {/* Experience Cards */}
-      <div className="container mx-auto px-6 lg:px-20 mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        {/* Work Experience */}
-        <div className="bg-gray-100 text-black p-6 rounded-xl shadow-lg border border-gray-300">
-          <h3 className="text-2xl font-semibold mb-2">Software Engineer Intern</h3>
-          <h4 className="text-xl text-gray-600 mb-4">XYZ Tech Company</h4>
-          <p className="text-gray-800">
-            ⚡ Built and optimized full-stack applications using the MERN stack.  
-            ⚡ Developed scalable APIs and improved backend performance.  
-            ⚡ Collaborated with a team to implement best software development practices.
-          </p>
-        </div>
+     
 
-        {/* Internship */}
-        <div className="bg-gray-100 text-black p-6 rounded-xl shadow-lg border border-gray-300">
-          <h3 className="text-2xl font-semibold mb-2">Web Development Intern</h3>
-          <h4 className="text-xl text-gray-600 mb-4">ABC Solutions</h4>
-          <p className="text-gray-800">
-            ⚡ Designed and implemented UI components using React.js.  
-            ⚡ Improved website performance by optimizing frontend assets.  
-            ⚡ Worked on integrating REST APIs for dynamic web applications.
-          </p>
-        </div>
 
-        {/* Volunteership */}
-        <div className="bg-gray-100 text-black p-6 rounded-xl shadow-lg border border-gray-300">
-          <h3 className="text-2xl font-semibold mb-2">Community Leader</h3>
-          <h4 className="text-xl text-gray-600 mb-4">Google Developer Student Clubs</h4>
-          <p className="text-gray-800">
-            ⚡ Organized tech workshops, hackathons, and mentorship programs.  
-            ⚡ Helped students build their first open-source projects.  
-            ⚡ Networked with industry professionals and guest speakers.
-          </p>
-        </div>
-
+ 
+    <div className="container mx-auto p-6">
+      {/* Toggle Button */}
+      <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg cursor-pointer" 
+           onClick={() => setIsVisible(!isVisible)}>
+        <h2 className="text-xl font-bold">Work</h2>
+        {isVisible ? <FaMinus size={20} /> : <FaPlus size={20} />}
       </div>
+
+      {/* Work Experience Cards (Conditional Rendering) */}
+      {isVisible && (
+        <div className="mt-4 space-y-4">
+          {/* Card 1 */}
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-lg font-semibold">Associate Software Engineer</h3>
+            <p className="text-gray-500">RipeSeed.io</p>
+            <p className="text-gray-400">August 2024 - Present | Lahore, Pakistan</p>
+            <ul className="list-disc ml-5 text-gray-700">
+              <li>Developing scalable web applications using React.js, Next.js, Node.js, and TypeScript.</li>
+              <li>Implementing secure cloud-native solutions on AWS.</li>
+              <li>Building RESTful APIs and microservices.</li>
+            </ul>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-lg font-semibold">Full Stack Software Engineer</h3>
+            <p className="text-gray-500">Cowlar Design Studio</p>
+            <p className="text-gray-400">February 2024 - August 2024 | Islamabad, Pakistan</p>
+            <ul className="list-disc ml-5 text-gray-700">
+              <li>Developing AI-driven retail products with Vue.js, React.js, and TypeScript.</li>
+              <li>Writing complex database queries and optimizing APIs.</li>
+              <li>Implementing RESTful APIs with Node.js and Express.js.</li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
     </div>
   );
 }
+
