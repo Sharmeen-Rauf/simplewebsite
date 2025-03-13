@@ -169,23 +169,7 @@ export default function Experience() {
               </ul>
             </div>
 
-            <div className="bg-white p-6 shadow-lg rounded-lg">
-              <h3 className="text-lg font-semibold">
-                Full Stack Software Engineer
-              </h3>
-              <p className="text-gray-500">Cowlar Design Studio</p>
-              <p className="text-gray-400">
-                February 2024 - August 2024 | Islamabad, Pakistan
-              </p>
-              <ul className="list-disc ml-5 text-gray-700">
-                <li>
-                  Developing AI-driven retail products with Vue.js, React.js,
-                  and TypeScript.
-                </li>
-                <li>Writing complex database queries and optimizing APIs.</li>
-                <li>Implementing RESTful APIs with Node.js and Express.js.</li>
-              </ul>
-            </div>
+            
           </div>
         )}
       </div>

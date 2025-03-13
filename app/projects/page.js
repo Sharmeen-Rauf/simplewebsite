@@ -1,111 +1,92 @@
-"use client";
-import Image from "next/image";
-import { useState } from 'react';
+import React from "react";
 
-
-export default function Projects() {
-      const [showProjects, setShowProjects] = useState(false);
-      const projects = [
-        {
-          title: "Currency Converter",
-          description:
-            "A simple currency converter built with React and Tailwind.",
-          tech: ["React", "Tailwind"],
-          date: "March 2024",
-        },
-        {
-          title: "Background Changer",
-          description: "A fun project to change background colors dynamically.",
-          tech: ["HTML", "CSS", "JavaScript"],
-          date: "January 2024",
-        },
-        {
-          title: "Spotify Clone",
-          description:
-            "A frontend clone of Spotify using HTML, CSS, and JavaScript.",
-          tech: ["HTML", "CSS", "JavaScript"],
-          date: "February 2024",
-        },
-        {
-          title: "Responsive Website",
-          description:
-            "A fully responsive website built using Next.js and Tailwind.",
-          tech: ["Next.js", "Tailwind"],
-          date: "April 2024",
-        },
-      ];
-
-
-
+const Projects = () => {
   return (
-    <div className="min-h-screen bg-white text-black font-sans flex flex-col items-center justify-center py-16">
-      {/* Top Section - Funky Text & Image */}
-      <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
-        {/* Left Side - Funky Text */}
-        <div className="lg:w-1/2 text-left">
-          <h2 className="text-5xl font-bold mb-4">Projects 🎓</h2>
-          <p className="text-2xl text-gray-700">
-            With a deep understanding of React, Next.js, Redux, Node.js,
-            Express, GraphQL and MongoDB, my expertise lies in developing robust
-            and scalable web applications. By harnessing the power of these
-            technologies, I create engaging user interfaces that deliver
-            exceptional experiences, effectively manage complex application
-            states to ensure seamless data flow, develop efficient server-side
-            APIs and design efficient data models and ensure secure data
-            storage. My proficiency in these technologies enables me to deliver
-            high-quality applications that meet the demands of modern web
-            development. 🫡 🙃
-          </p>
-        </div>
-
-        {/* Right Side - Convocation Cap Image */}
-        <div className="lg:w-1/2 flex justify-center mt-6 lg:mt-0">
-          <Image
-            src="/hat.png"
-            alt="Convocation Cap"
-            width={300}
-            height={300}
-            className="object-contain"
+    <section className="bg-white py-16 px-8 max-w-7xl mx-auto">
+      {/* Grid for SVG and Heading/Description */}
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        {/* Left Side: SVG Illustration */}
+        <div>
+          {/* Replace with your actual SVG or image */}
+          <img
+            src="/project.png" // Update with your SVG path
+            alt="Projects Illustration"
+            className="w-36 h-36"
           />
         </div>
+
+        {/* Right Side: Heading and Description */}
+        <div>
+          <h2 className="text-4xl font-bold text-gray-900">Projects</h2>
+          <p className="mt-4 text-gray-600">
+            Explore some of my recent work, where I built scalable and efficient
+            web applications using modern technologies like React, Next.js, and
+            Node.js.
+          </p>
+        </div>
       </div>
-      <section className="p-8 bg-gray-100 min-h-screen">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Projects</h2>
-            <button
-              onClick={() => setShowProjects(!showProjects)}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md"
-            >
-              {showProjects ? "-" : "+"}
-            </button>
-          </div>
-          {showProjects && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map((project, index) => (
-                <div key={index} className="bg-white p-6 shadow-lg rounded-lg">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <p className="text-gray-700 mt-2">{project.description}</p>
-                  <p className="text-sm text-gray-500 mt-1">
-                    Created in {project.date}
-                  </p>
-                  <div className="flex gap-2 mt-3">
-                    {project.tech.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="bg-gray-200 px-3 py-1 text-sm rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+
+      {/* Projects Grid */}
+      <div className="mt-12 grid md:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="p-6 bg-gray-100 rounded-xl shadow-lg transition-transform transform hover:scale-105"
+          >
+            <h3 className="text-xl font-semibold text-gray-800">
+              {project.title}
+            </h3>
+            <p className="mt-2 text-gray-600">{project.description}</p>
+            <div className="mt-4 flex space-x-2">
+              {project.tech.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-sm bg-indigo-100 text-indigo-700 rounded-full"
+                >
+                  {tech}
+                </span>
               ))}
             </div>
-          )}
-        </div>
-      </section>
-      );
-    </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
-}
+};
+
+const projects = [
+  {
+    title: "Spotify Clone",
+    description:
+      "A music streaming platform built with Next.js and Tailwind CSS.",
+    tech: ["Next.js", "Tailwind", "API"],
+  },
+  {
+    title: "E-Commerce Website",
+    description: "An online shopping platform with integrated payment gateway.",
+    tech: ["React", "Stripe", "Node.js"],
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "A personal developer portfolio showcasing projects and skills.",
+    tech: ["React", "Framer Motion", "Tailwind"],
+  },
+  {
+    title: "Dev-Portfolio",
+    description:
+      "An open-source customizable portfolio website for developers to showcase their skills and achievements.",
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    date: "June 2023",
+  },
+
+  {
+    title: "Ecommerce Database",
+    description:
+"The 2nd semester project at kiet aimed to Developed a comprehensive e-commerce shopping database project, including ERD design, queries, subqueries, stored procedures, and DML/DDL commands.",
+   tech: ["MySql", "SQLServer", "Database"],
+    date: "June 2023",
+  },
+];
+
+export default Projects;
