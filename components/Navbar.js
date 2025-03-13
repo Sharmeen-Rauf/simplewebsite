@@ -16,8 +16,8 @@ export default function Navbar() {
           <Link href="/" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Home</Link>
           <Link href="education" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Education</Link>
           <Link href="expereince" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Experience</Link>
-          <Link href="#projects" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Projects</Link>
-          <Link href="#contact" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Contact Me</Link>
+          <Link href="projects" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Projects</Link>
+          <Link href="contactus" className="text-xl text-white hover:text-gray-400 transition-all duration-300">Contact Me</Link>
         </nav>
       </header>
     </div>
