@@ -1,9 +1,8 @@
-"use client"
 import Link from "next/link";
-import { useState } from "react"; // For handling mobile menu toggle
+import { useState } from "react";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -11,14 +10,12 @@ export default function Navbar() {
 
   return (
     <div className="bg-black text-white font-sans">
-      {/* Navbar */}
       <header className="left-0 right-0 p-4 md:p-6 flex justify-between items-center z-10">
-        {/* Logo */}
         <h1 className="text-2xl md:text-4xl font-bold text-red-400 font-[cursive]">
           &lt;Sharmeen<span className="text-gray-400">/</span>&gt;
         </h1>
 
-        {/* Hamburger Menu for Mobile */}
+        {/* Hamburger Menu */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={toggleMenu}
@@ -47,30 +44,35 @@ export default function Navbar() {
         >
           <Link
             href="/"
+            onClick={() => setIsMenuOpen(false)}
             className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
           >
             Home
           </Link>
           <Link
-            href="education"
+            href="/education"
+            onClick={() => setIsMenuOpen(false)}
             className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
           >
             Education
           </Link>
           <Link
-            href="experience"
+            href="/experience"
+            onClick={() => setIsMenuOpen(false)}
             className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
           >
             Experience
           </Link>
           <Link
-            href="projects"
+            href="/projects"
+            onClick={() => setIsMenuOpen(false)}
             className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
           >
             Projects
           </Link>
           <Link
-            href="contactus"
+            href="/contactus"
+            onClick={() => setIsMenuOpen(false)}
             className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
           >
             Contact Me
