@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -11,15 +11,17 @@ export default function Navbar() {
 
   return (
     <div className="bg-black text-white font-sans">
-      <header className="left-0 right-0 p-4 md:p-6 flex justify-between items-center z-10">
+      <header className="p-4 md:p-6 flex justify-between items-center z-10 relative">
+        {/* Logo */}
         <h1 className="text-2xl md:text-4xl font-bold text-red-400 font-[cursive]">
           &lt;Sharmeen<span className="text-gray-400">/</span>&gt;
         </h1>
 
-        {/* Hamburger Menu */}
+        {/* Hamburger Menu for Mobile */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={toggleMenu}
+          aria-label="Toggle Menu"
         >
           <svg
             className="w-6 h-6"
@@ -32,52 +34,33 @@ export default function Navbar() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
+              d="M4 6h16M4 12h16M4 18h16"
             ></path>
           </svg>
         </button>
 
         {/* Navigation Links */}
         <nav
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } md:flex md:items-center md:space-x-8 absolute md:static bg-black w-full md:w-auto left-0 top-16 md:top-0 p-4 md:p-0`}
+          className={`absolute md:relative top-16 left-0 w-full md:w-auto bg-black md:bg-transparent flex flex-col md:flex-row md:items-center md:space-x-8 transition-all duration-300 ${
+            isMenuOpen ? "block" : "hidden md:flex"
+          }`}
         >
-          <Link
-            href="/"
-            onClick={() => setIsMenuOpen(false)}
-            className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
-          >
-            Home
-          </Link>
-          <Link
-            href="/education"
-            onClick={() => setIsMenuOpen(false)}
-            className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
-          >
-            Education
-          </Link>
-          <Link
-            href="/experience"
-            onClick={() => setIsMenuOpen(false)}
-            className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
-          >
-            Experience
-          </Link>
-          <Link
-            href="/projects"
-            onClick={() => setIsMenuOpen(false)}
-            className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/contactus"
-            onClick={() => setIsMenuOpen(false)}
-            className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0"
-          >
-            Contact Me
-          </Link>
+          {[
+            { href: "/", label: "Home" },
+            { href: "/education", label: "Education" },
+            { href: "/experience", label: "Experience" },
+            { href: "/projects", label: "Projects" },
+            { href: "/contactus", label: "Contact Me" },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-xl text-white hover:text-gray-400 transition-all duration-300 py-2 md:py-0 text-center md:text-left"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </header>
     </div>
