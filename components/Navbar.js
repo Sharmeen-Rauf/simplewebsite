@@ -14,7 +14,7 @@ export default function Navbar() {
       <header className="p-4 md:p-6 flex justify-between items-center z-10 relative">
         {/* Logo */}
         <h1 className="text-2xl md:text-4xl font-bold text-red-400 font-[cursive]">
-          &lt;Sharmeen<span className="text-gray-400">/</span>&gt;
+          Sharmeen<span className="text-gray-400">/</span>
         </h1>
 
         {/* Hamburger Menu for Mobile */}
@@ -41,8 +41,10 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <nav
-          className={`absolute md:relative top-16 left-0 w-full md:w-auto bg-black md:bg-transparent flex flex-col md:flex-row md:items-center md:space-x-8 transition-all duration-300 ${
-            isMenuOpen ? "block" : "hidden md:flex"
+          className={`md:flex md:items-center md:space-x-8 transition-all duration-300 ${
+            isMenuOpen
+              ? "block absolute top-16 left-0 w-full bg-black"
+              : "hidden md:flex"
           }`}
         >
           {[
