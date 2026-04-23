@@ -2,20 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --spotify-green: #1DB954;
+  --spotify-black: #121212;
+  --spotify-dark-gray: #181818;
+  --spotify-gray: #282828;
+  --spotify-light-gray: #b3b3b3;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--spotify-green);
+  color: #000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+  border: 3px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.glass-card {
+  background: rgba(24, 24, 24, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spotify-card {
+  background: #181818;
+  transition: background 0.3s ease;
+}
+
+.spotify-card:hover {
+  background: #282828;
+}
+
+.text-spotify-green {
+  color: var(--spotify-green);
+}
+
+.bg-spotify-green {
+  background-color: var(--spotify-green);
 }

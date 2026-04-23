@@ -1,179 +1,116 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
 
-     import { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa"; // Import icons
-
-
-
-export default function Experience() {
-
-    const [isVisible, setIsVisible] = useState(false);
+const Experience = () => {
+  const experiences = [
+    {
+      role: "Frontend Developer (Teacher)",
+      company: "Shamsi School of Professional Education",
+      period: "August 2023 - Present",
+      location: "Karachi, Pakistan",
+      points: [
+        "Delivered in-depth instruction on modern web technologies including React.",
+        "Demonstrated expertise in industry-standard tools like Git and Webpack.",
+        "Designed comprehensive, hands-on courses adapted for various skill levels.",
+        "Developed modular and reusable components with Vue.js and TypeScript."
+      ]
+    },
+    {
+      role: "Full Stack Software Engineer",
+      company: "Cowlar Design Studio",
+      period: "February 2024 - August 2024",
+      location: "Islamabad, Pakistan",
+      points: [
+        "Developing AI-driven retail products with Vue.js, React.js, and TypeScript.",
+        "Writing complex database queries and optimizing APIs.",
+        "Implementing RESTful APIs with Node.js and Express.js."
+      ]
+    },
+    {
+      role: "Python AI & Web Developer",
+      company: "Shamsi School of Professional Education",
+      period: "June 2023 - August 2023",
+      location: "Karachi, Pakistan",
+      points: [
+        "Introduced kids to Python and AI fundamentals through engaging lessons.",
+        "Led interactive coding activities and AI projects.",
+        "Developed flexible programming lessons for different learning speeds."
+      ]
+    },
+    {
+      role: "Junior Web Developer",
+      company: "Waszaf Immigration Consultant",
+      period: "January 2022 - January 2023",
+      location: "Karachi, Pakistan",
+      points: [
+        "Worked on frontend for in-house HR automation projects.",
+        "Created UI screens and handled client-side logic with Bootstrap and JS.",
+        "Wrote reusable React components using Ant Design."
+      ]
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans flex flex-col items-center justify-center py-16">
-      {/* Top Section - Funky Text & Image */}
-      <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
-        {/* Left Side - Funky Text */}
-        <div className="lg:w-1/2 text-left">
-          <h2 className="text-5xl font-bold mb-4">Experience 💼</h2>
-          <p className="text-2xl text-gray-700">
-            Work, Internship, and Volunteership <br />
-            I'm a passionate software engineer who loves crafting creative
-            solutions with code. My main area of expertise revolves around
-            building scalable applications using the MERN stack. Additionally, I
-            have a strong enthusiasm for fostering tech communities and actively
-            engage in various tech events. Guiding and supporting aspiring
-            developers as they begin their career paths brings me immense joy
-            because we all know the struggle of finding the missing semicolon.
-            😉
-          </p>
-        </div>
-
-        {/* Right Side - Experience Image */}
-        <div className="lg:w-1/2 flex justify-center mt-6 lg:mt-0">
-          <Image
-            src="/experience.png"
-            alt="Work Experience"
-            width={300}
-            height={300}
-            className="object-contain"
-          />
-        </div>
-      </div>
-
-      {/* Experience Cards */}
-
-      <div className="container mx-auto p-6">
-        {/* Toggle Button */}
-        <div
-          className="flex justify-between items-center bg-gray-100 p-4 rounded-lg cursor-pointer"
-          onClick={() => setIsVisible(!isVisible)}
-        >
-          <h2 className="text-xl font-bold">Work</h2>
-          {isVisible ? <FaMinus size={20} /> : <FaPlus size={20} />}
-        </div>
-
-        {/* Work Experience Cards (Conditional Rendering) */}
-        {isVisible && (
-          <div className="mt-4 space-y-4">
-            {/* Card 1 */}
-            <div className="bg-white p-6 shadow-lg rounded-lg">
-              <h3 className="text-lg font-semibold">
-                Frontend Developer (Teacher)
-              </h3>
-              <p className="text-gray-500">
-                {" "}
-                Shamsi School of Professional Education
-              </p>
-              <p className="text-gray-400">
-                August 2023 - Present | Karachi, Pakistan
-              </p>
-              <ul className="list-disc ml-5 text-gray-700">
-                <li>
-                  Delivered in-depth instruction on modern web technologies,
-                  including HTML, CSS, JavaScript, and frameworks like React,
-                  enabling students to build responsive and dynamic user
-                  interfaces.
-                </li>
-                <li>
-                  Demonstrated expertise in tools such as Git, Webpack, and
-                  version control systems, ensuring students are well - versed
-                  in industry-standard development environments
-                </li>
-                <li>
-                  Designed and taught comprehensive, hands-on courses, adapting
-                  complex frontend concepts to students' varying skill levels,
-                  promoting practical mastery of coding best practices.
-                </li>
-                <li>
-                  –Developing modular and reusable frontend components with
-                  Vue.js, React.js, and TypeScript to drive UI efficiency and
-                  ensure robust product performance.
-                </li>
-                <li>
-                –Implementing RESTful APIs with Node.js and Express.js, using
-                Sequelize for MySQL and Mongoose for MongoDB to ensure efficient
-                database interactions.
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white p-6 shadow-lg rounded-lg">
-              <h3 className="text-lg font-semibold">
-                Full Stack Software Engineer
-              </h3>
-              <p className="text-gray-500">Cowlar Design Studio</p>
-              <p className="text-gray-400">
-                February 2024 - August 2024 | Islamabad, Pakistan
-              </p>
-              <ul className="list-disc ml-5 text-gray-700">
-                <li>
-                  Developing AI-driven retail products with Vue.js, React.js,
-                  and TypeScript.
-                </li>
-                <li>Writing complex database queries and optimizing APIs.</li>
-                <li>Implementing RESTful APIs with Node.js and Express.js.</li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-6 shadow-lg rounded-lg">
-              <h3 className="text-lg font-semibold">
-                Python AI & Web Developer (Summer Camp)
-              </h3>
-              <p className="text-gray-500">
-                Shamsi School of Professional Education
-              </p>
-              <p className="text-gray-400">
-                June 2023 - August 2023 | Karachi, Pakistan
-              </p>
-              <ul className="list-disc ml-5 text-gray-700">
-                <li>
-                  Delivered engaging lessons introducing kids to Python and AI
-                  fundamentals, sparking early tech interest.
-                </li>
-                <li>
-                  Led interactive coding activities and AI projects, helping
-                  kids apply concepts in practical ways.
-                </li>
-                <li>
-                  Developed flexible programming lessons, adjusting for
-                  different learning speeds and ensuring a fun, practical
-                  approach to coding.
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white p-6 shadow-lg rounded-lg">
-              <h3 className="text-lg font-semibold">Junior Web Developer</h3>
-              <p className="text-gray-500">Waszaf Immigration Consultant</p>
-              <p className="text-gray-400">
-                January 2022 - January 2023 | Karachi, Pakistan
-              </p>
-              <ul className="list-disc ml-5 text-gray-700">
-                <li>
-                  Worked mainly on the frontend side of the company's inhouse
-                  project for helping HRs in generating different letter like
-                  offer letters, warning letters etc in bulk.
-                </li>
-                <li>
-                  Using HTML, CSS, Bootstrap and JavaScript, created UI screens
-                  and handled the client-side logic.
-                </li>
-                <li>
-                  Wrote reusable React components using React.js, Context API
-                  and Ant Design and fixed bugs in the existing code.
-                </li>
-              </ul>
-            </div>
-
-            
+    <div className="min-h-screen bg-black text-white font-sans pt-32 pb-16 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-16 animate-fade-in">
+          <div className="relative w-64 h-64 bg-gradient-to-br from-green-900 to-black rounded-lg overflow-hidden shadow-2xl group">
+             <Image 
+                src="/experience.png" 
+                alt="Experience" 
+                fill 
+                className="object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+             />
           </div>
-        )}
+          <div className="flex-1 text-center md:text-left">
+            <span className="text-xs font-bold uppercase tracking-widest text-spotify-light-gray mb-2 block">Professional Career</span>
+            <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter">Experience</h1>
+            <p className="text-xl text-spotify-light-gray max-w-2xl">
+              Building scalable applications and fostering tech communities. 
+              My journey from junior dev to full-stack engineer and educator.
+            </p>
+          </div>
+        </div>
+
+        {/* Experience List (Playlist Table Style) */}
+        <div className="spotify-card rounded-2xl border border-white/5 overflow-hidden">
+          <div className="grid grid-cols-[auto_1fr_auto] gap-4 p-4 border-b border-white/10 text-spotify-light-gray text-xs font-bold uppercase tracking-widest">
+            <div className="w-8 text-center">#</div>
+            <div>Role & Company</div>
+            <div className="hidden md:block">Duration</div>
+          </div>
+          
+          <div className="divide-y divide-white/5">
+            {experiences.map((exp, i) => (
+              <div key={i} className="group hover:bg-white/5 transition-colors p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-start">
+                <div className="w-8 text-center text-spotify-light-gray font-medium pt-1">{i + 1}</div>
+                <div className="space-y-2">
+                  <h3 className="text-white font-bold text-lg group-hover:text-spotify-green transition-colors">{exp.role}</h3>
+                  <p className="text-spotify-light-gray text-sm font-medium">{exp.company} • {exp.location}</p>
+                  <ul className="space-y-2 pt-2">
+                    {exp.points.map((p, pi) => (
+                      <li key={pi} className="text-spotify-light-gray text-sm flex gap-2">
+                        <span className="text-spotify-green">▹</span> {p}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="md:hidden pt-2 text-xs font-bold text-spotify-light-gray italic">
+                    {exp.period}
+                  </div>
+                </div>
+                <div className="hidden md:block text-spotify-light-gray text-sm font-medium pt-1">
+                  {exp.period}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Experience;
 
