@@ -30,9 +30,9 @@ export default function Education() {
               🎓
             </div>
             <div className="w-full md:w-2/3">
-              <span className="text-spotify-green font-bold text-sm uppercase tracking-widest mb-2 block">Bachelor's Degree</span>
+              <span className="text-spotify-green font-bold text-sm uppercase tracking-widest mb-2 block">Bachelor&apos;s Degree</span>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">DHA Suffah University</h2>
-              <p className="text-2xl text-spotify-light-gray mb-8">Bachelor's in Cyber Security</p>
+              <p className="text-2xl text-spotify-light-gray mb-8">Bachelor&apos;s in Cyber Security</p>
               
               <div className="space-y-6 text-spotify-light-gray">
                 {[

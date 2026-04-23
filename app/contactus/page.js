@@ -24,9 +24,9 @@ const Contact = () => {
         <div className="space-y-8">
           <div className="space-y-4">
             <span className="text-spotify-green font-bold text-sm uppercase tracking-widest">Get In Touch</span>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tighter">Let's Connect</h1>
+            <h1 className="text-5xl md:text-6xl font-black tracking-tighter">Let&apos;s Connect</h1>
             <p className="text-lg text-spotify-light-gray leading-relaxed">
-              I’m practically the social media version of Batman, always lurking
+              I&apos;m practically the social media version of Batman, always lurking
               in the shadows of every platform, ready to swoop in and save the
               day! Whether you need some industry wizardry or a tech talk
               virtuoso, just reach out.
