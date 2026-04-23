@@ -10,6 +10,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        spotify: {
+          green: "#1DB954",
+          black: "#121212",
+          gray: "#282828",
+          light: "#b3b3b3",
+        },
       },
     },
   },
