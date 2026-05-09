@@ -2,57 +2,362 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* ============================================
+   SYSTEM DESIGN TOKENS
+   ============================================ */
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  /* Core Colors */
+  --bg-void: #000000;
+  --bg-core: #050508;
+  --bg-surface: #0a0a10;
+  --bg-panel: #0d0d16;
+  --bg-glass: rgba(10, 10, 20, 0.6);
+  
+  /* Neon Accents */
+  --cyan: #00f0ff;
+  --cyan-dim: #00b4cc;
+  --cyan-glow: rgba(0, 240, 255, 0.15);
+  --purple: #b026ff;
+  --purple-dim: #7a1ab3;
+  --purple-glow: rgba(176, 38, 255, 0.15);
+  --electric-blue: #0066ff;
+  --neon-green: #00ff88;
+  --neon-green-dim: #00cc6a;
+  --warning-amber: #ff9500;
+  --danger-red: #ff2244;
+  
+  /* Text Hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: #8899bb;
+  --text-muted: #445566;
+  --text-accent: var(--cyan);
+  
+  /* Legacy Spotify compat */
   --spotify-green: #1DB954;
   --spotify-black: #121212;
   --spotify-dark-gray: #181818;
   --spotify-gray: #282828;
   --spotify-light-gray: #b3b3b3;
+  
+  /* Glow Effects */
+  --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15);
+  --glow-purple: 0 0 20px rgba(176, 38, 255, 0.4), 0 0 60px rgba(176, 38, 255, 0.15);
+  --glow-green: 0 0 20px rgba(0, 255, 136, 0.4), 0 0 60px rgba(0, 255, 136, 0.15);
+  --glow-amber: 0 0 20px rgba(255, 149, 0, 0.5);
+  --glow-red: 0 0 20px rgba(255, 34, 68, 0.5);
+  
+  /* Borders */
+  --border-cyber: 1px solid rgba(0, 240, 255, 0.2);
+  --border-ghost: 1px solid rgba(255, 255, 255, 0.06);
+  
+  /* Fonts */
+  --font-display: 'Orbitron', monospace;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-void);
+  font-family: var(--font-body);
   overflow-x: hidden;
+  cursor: default;
 }
 
 ::selection {
-  background-color: var(--spotify-green);
+  background-color: var(--cyan);
   color: #000;
 }
 
-/* Custom Scrollbar */
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 4px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--bg-void);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 6px;
-  border: 3px solid #000;
+  background: linear-gradient(var(--cyan), var(--purple));
+  border-radius: 2px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: var(--cyan);
 }
 
-/* Animations */
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+.font-body { font-family: var(--font-body); }
+
+.text-cyber { color: var(--cyan); }
+.text-purple { color: var(--purple); }
+.text-neon-green { color: var(--neon-green); }
+.text-warning { color: var(--warning-amber); }
+.text-danger { color: var(--danger-red); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-cyan { box-shadow: var(--glow-cyan); }
+.glow-purple { box-shadow: var(--glow-purple); }
+.glow-green { box-shadow: var(--glow-green); }
+.text-glow-cyan { text-shadow: 0 0 10px var(--cyan), 0 0 30px rgba(0, 240, 255, 0.5); }
+.text-glow-purple { text-shadow: 0 0 10px var(--purple), 0 0 30px rgba(176, 38, 255, 0.5); }
+.text-glow-green { text-shadow: 0 0 10px var(--neon-green), 0 0 30px rgba(0, 255, 136, 0.5); }
+
+/* ============================================
+   CRT / SCANLINE OVERLAY
+   ============================================ */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  animation: scanline-drift 8s linear infinite;
+}
+
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+@keyframes scanline-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-ghost);
+}
+
+.glass-cyber {
+  background: rgba(0, 240, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-cyber);
+}
+
+.glass-panel {
+  background: rgba(13, 13, 22, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+/* ============================================
+   NEON BORDER ANIMATIONS
+   ============================================ */
+.border-glow-cyan {
+  border: 1px solid var(--cyan);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3), inset 0 0 8px rgba(0, 240, 255, 0.05);
+}
+
+.border-glow-purple {
+  border: 1px solid var(--purple);
+  box-shadow: 0 0 8px rgba(176, 38, 255, 0.3), inset 0 0 8px rgba(176, 38, 255, 0.05);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); clip-path: inset(0 0 100% 0); }
+  10% { transform: translate(-2px, 2px); clip-path: inset(20% 0 30% 0); }
+  20% { transform: translate(2px, -2px); clip-path: inset(60% 0 10% 0); }
+  30% { transform: translate(-1px, 1px); clip-path: inset(80% 0 5% 0); }
+  40% { transform: translate(0); clip-path: inset(0 0 0 0); }
+  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
+}
+
+@keyframes glitch-text {
+  0%, 90%, 100% { transform: translate(0); opacity: 1; }
+  91% { transform: translate(-3px, 1px); opacity: 0.8; color: var(--danger-red); }
+  93% { transform: translate(3px, -1px); opacity: 0.9; color: var(--cyan); }
+  95% { transform: translate(-1px, 2px); opacity: 0.7; }
+  97% { transform: translate(2px, -1px); opacity: 1; }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 40px rgba(0, 240, 255, 0.3); }
+}
+
+@keyframes pulse-purple {
+  0%, 100% { box-shadow: 0 0 5px rgba(176, 38, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(176, 38, 255, 0.7), 0 0 40px rgba(176, 38, 255, 0.3); }
+}
+
+@keyframes neural-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes neural-counter-rotate {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes type-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.8; }
+  97% { opacity: 1; }
+  98% { opacity: 0.6; }
+  99% { opacity: 1; }
+}
+
+@keyframes cassette-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes eq-bounce {
+  0%, 100% { height: 20%; }
+  25% { height: 80%; }
+  50% { height: 50%; }
+  75% { height: 90%; }
+}
+
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes vhs-glitch {
+  0%, 100% { transform: skewX(0deg); filter: none; }
+  5% { transform: skewX(0.5deg); filter: hue-rotate(10deg) saturate(2); }
+  10% { transform: skewX(-0.5deg); filter: hue-rotate(-10deg); }
+  15% { transform: skewX(0deg); filter: none; }
+}
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scan-line {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+@keyframes terminal-glow {
+  0%, 100% { text-shadow: 0 0 4px var(--neon-green); }
+  50% { text-shadow: 0 0 12px var(--neon-green), 0 0 25px rgba(0, 255, 136, 0.4); }
+}
+
+/* Animation Utilities */
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-fade-in-scale { animation: fadeInScale 0.6s ease-out forwards; }
+.animate-pulse-cyan { animation: pulse-cyan 2s ease-in-out infinite; }
+.animate-pulse-purple { animation: pulse-purple 2s ease-in-out infinite; }
+.animate-flicker { animation: flicker 4s ease-in-out infinite; }
+.animate-glitch-text { animation: glitch-text 5s ease-in-out infinite; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-vhs { animation: vhs-glitch 10s ease-in-out infinite; }
+.animate-terminal-glow { animation: terminal-glow 2s ease-in-out infinite; }
+.animate-cassette { animation: cassette-spin 2s linear infinite; }
+.animate-radar { animation: radar-sweep 4s linear infinite; }
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.cyber-card {
+  background: var(--bg-panel);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cyber-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+/* Legacy compat */
+.spotify-card {
+  background: #181818;
+  transition: background 0.3s ease;
+}
+.spotify-card:hover {
+  background: #282828;
 }
 
 .glass-card {
@@ -61,19 +366,184 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.spotify-card {
-  background: #181818;
-  transition: background 0.3s ease;
+/* ============================================
+   TERMINAL STYLES
+   ============================================ */
+.terminal-text {
+  font-family: var(--font-mono);
+  color: var(--neon-green);
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.5);
 }
 
-.spotify-card:hover {
-  background: #282828;
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: var(--neon-green);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: type-blink 1s step-end infinite;
+  box-shadow: 0 0 6px var(--neon-green);
 }
 
-.text-spotify-green {
-  color: var(--spotify-green);
+.terminal-prompt::before {
+  content: '> ';
+  color: var(--cyan);
 }
 
-.bg-spotify-green {
-  background-color: var(--spotify-green);
+/* ============================================
+   HOLOGRAPHIC GRID
+   ============================================ */
+.holo-grid {
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
+
+/* ============================================
+   NEURAL NODE STYLES
+   ============================================ */
+.neural-node {
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.neural-node:hover {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 40px rgba(0, 240, 255, 0.3);
+  transform: scale(1.2);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn-cyber {
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.btn-cyber::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-cyber:hover {
+  color: #000;
+  box-shadow: var(--glow-cyan);
+}
+
+.btn-cyber:hover::before {
+  opacity: 1;
+}
+
+.btn-cyber span { position: relative; z-index: 1; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* ============================================
+   PROGRESS / LOADING BARS
+   ============================================ */
+.progress-bar {
+  height: 2px;
+  background: rgba(0, 240, 255, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 8px var(--cyan);
+  transition: width 0.3s ease;
+}
+
+/* ============================================
+   CORNER BRACKETS DECORATION
+   ============================================ */
+.corner-bracket {
+  position: relative;
+}
+
+.corner-bracket::before,
+.corner-bracket::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--cyan);
+  border-style: solid;
+  opacity: 0.6;
+}
+
+.corner-bracket::before {
+  top: -2px;
+  left: -2px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-bracket::after {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2px 2px 0;
+}
+
+/* ============================================
+   MODULE SECTION TRANSITIONS
+   ============================================ */
+.module-enter {
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ============================================
+   UTILITY HELPERS
+   ============================================ */
+.no-select { user-select: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Color utilities for tailwind custom values */
+.bg-void { background: var(--bg-void); }
+.bg-surface { background: var(--bg-surface); }
+.bg-panel { background: var(--bg-panel); }
+.text-cyan { color: var(--cyan); }
+
+/* Prevent layout shift in Spotify cards */
+.text-spotify-green { color: var(--spotify-green); }
+.bg-spotify-green { background-color: var(--spotify-green); }
+.bg-spotify-gray { background-color: var(--spotify-gray); }
+.bg-spotify-dark-gray { background-color: var(--spotify-dark-gray); }
+.text-spotify-light-gray { color: var(--spotify-light-gray); }

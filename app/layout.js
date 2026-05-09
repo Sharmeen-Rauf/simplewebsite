@@ -1,7 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { SystemProvider } from "@/components/SystemContext";
+import CrtOverlay from "@/components/CrtOverlay";
+import NeuralBackground from "@/components/NeuralBackground";
+import BootSequence from "@/components/BootSequence";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,19 +16,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sharmeen-Portfolio",
-  description: "Sharmeen-Portfolio",
+  title: "Sharmeen Rauf — AI Neural Portfolio",
+  description: "Full-stack Developer & DevOps Engineer. Cinematic portfolio powered by the SR Neural Broadcast Core.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ background: '#000', overflowX: 'hidden' }}
       >
-        <Navbar/>
-        {children}
-        <Footer/>
+        <SystemProvider>
+          {/* Atmospheric canvas particle background */}
+          <NeuralBackground />
+          {/* CRT scanline aesthetic overlays */}
+          <CrtOverlay />
+          {/* Cinematic BIOS boot sequence */}
+          <BootSequence />
+          {/* Page content */}
+          {children}
+        </SystemProvider>
       </body>
     </html>
   );
