@@ -18,6 +18,21 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Sharmeen Rauf — AI Neural Portfolio",
   description: "Full-stack Developer & DevOps Engineer. Cinematic portfolio powered by the SR Neural Broadcast Core.",
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.png',
+  },
+  themeColor: '#00f0ff',
+  openGraph: {
+    title: 'Sharmeen Rauf — AI Neural Portfolio',
+    description: 'Full-stack Developer & DevOps Engineer. Cinematic portfolio powered by the SR Neural Broadcast Core.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {
