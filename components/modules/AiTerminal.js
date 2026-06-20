@@ -17,7 +17,7 @@ const COMMANDS = {
     { text: '  contact       — Open comm uplink console', type: 'cmd' },
     { text: '  clear         — Flush display buffer', type: 'cmd' },
     { text: '  hack          — ⚠ Initiate security breach simulation', type: 'cmd' },
-    { text: '  self-destruct — ⚠⚠ Trigger neural implosion protocol', type: 'cmd' },
+    { text: '  self-destruct — ⚠⚠ Trigger armor override protocol', type: 'cmd' },
     { text: '  ping          — Test Stark satellite latency', type: 'cmd' },
     { text: '  whoami        — Identity verification scan', type: 'cmd' },
     { text: '  matrix        — Activate matrix mode', type: 'cmd' },
@@ -69,7 +69,7 @@ const COMMANDS = {
   ],
 
   skills: () => [
-    { text: '> LOADING SYNAPTIC FREQUENCY MAP...', type: 'info' },
+    { text: '> LOADING STARK HUD FREQUENCY MAP...', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  FRONTEND CLUSTER:', type: 'header' },
     { text: '    React [92%] | Next.js [88%] | Vue [80%] | TS [85%] | Tailwind [90%]', type: 'data' },
@@ -112,7 +112,7 @@ const COMMANDS = {
   ],
 
   ping: () => [
-    { text: '> PINGING NEURAL UPLINK...', type: 'info' },
+    { text: '> PINGING STARK CORE UPLINK...', type: 'info' },
     { text: `  LATENCY: ${Math.floor(1 + Math.random() * 15)}ms`, type: 'ok' },
     { text: '  UPLINK:  STABLE', type: 'ok' },
     { text: '  PACKET LOSS: 0%', type: 'ok' },
@@ -130,10 +130,10 @@ const COMMANDS = {
     { text: '01010011 01101000 01100001 01110010', type: 'matrix' },
     { text: '01101101 01100101 01100101 01101110', type: 'matrix' },
     { text: '00100000 01010010 01100001 01110101', type: 'matrix' },
-    { text: '01100110 00100000 01001110 01000101', type: 'matrix' },
-    { text: '01010101 01010010 01000001 01001100', type: 'matrix' },
+    { text: '01100110 00100000 01010011 01010100', type: 'matrix' },
+    { text: '01000001 01010010 01001011 00100000', type: 'matrix' },
     { text: '', type: 'blank' },
-    { text: '  "SHARMEEN RAUF NEURAL" — decoded', type: 'ok' },
+    { text: '  "SHARMEEN RAUF STARK" — decoded', type: 'ok' },
   ],
 
   hack: 'HACK_MODE',

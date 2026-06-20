@@ -300,10 +300,10 @@ const PROJECTS = [
     id: 'PROJ-010',
     title: 'EscaBiz B2B Platform',
     classification: 'CLASSIFIED',
-    tagline: 'Staff Augmentation & Lead Gen SaaS',
-    description: 'B2B appointment setting and virtual sales staff management platform serving global clients with CRM automation and real-time performance analytics.',
-    overview: 'EscaBiz is a data-driven B2B lead generation and virtual staff augmentation company specializing in qualified appointment setting, sales team scaling, and end-to-end sales management.',
-    tech: ['Next.js 14', 'CRM API', 'Email Automation', 'Analytics Tools'],
+    tagline: 'Virtual Staff Augmentation & Lead Gen Services',
+    description: 'Modern B2B client acquisition platform featuring an interactive 13-component layout, a 7-benefits development grid, Trustpilot validations, and a robust multi-field quote capture system.',
+    overview: 'EscaBiz is a premium, data-driven B2B lead generation and virtual staff augmentation platform designed to scale sales outreach, manage CRM flows, and capture prospective clients via optimized frontend conversion loops.',
+    tech: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     status: 'COMPLETE',
     icon: '💼',
     color: 'var(--purple)',
@@ -312,20 +312,24 @@ const PROJECTS = [
     commits: 390,
     liveUrl: 'https://www.escabiz.com/',
     features: [
-      'Appointment scheduler with vetted decision-maker profiles',
-      'LinkedIn Outreach Automation pipeline integration',
-      'Dedicated VSA (Virtual Sales Agent) portal tracking client KPIs',
-      'B2B Targeted Email Campaign engine with automated sequencing'
+      'Sticky navigation header with fully responsive mobile menu overrides',
+      'Hero banner with colleagues-working overlay and semi-transparent dark/blue gradient',
+      '3-column grid mapping core value propositions (data targeting, custom outreach, relationship building)',
+      'Lead development grid containing confident.jpg image and alternating CTAs',
+      'B2B development benefits section arranged in a 7-benefits modular responsive grid',
+      '6 service exploration cards highlighting appointment setting, VSAs, and LinkedIn automation',
+      'Interactive Trustpilot testimonial cards (Ashlee John, Michael Chen, Sarah Williams)',
+      '9-field Quote request form featuring service drop-down, discovery selectors, and SMS consent toggles',
+      'Geographical contact cards for London, Texas, and Karachi with embedded Google Maps API'
     ],
     impact: [
-      '90% cost reduction for agencies outsourcing sales vs. in-house staff',
-      'Predictable lead pipeline generation eliminating dry outreach months',
-      'Global operation scaling across US, UK, and Pakistan markets'
+      '90% sales cost reduction for outsourcing agencies using automated quote-estimate funnels',
+      'High conversion metrics driven by mobile-first grids and min 48px touch targets'
     ],
     innovations: [
-      'CRM sync hooks for automated lead delivery confirmation',
-      'Dynamic performance charts tracking VSA-to-meeting conversions',
-      'Secure organizational billing and reporting structures'
+      'React state hooks for secure multi-field contact form validation and error handling',
+      'Infinite-scrolling partner logo carousel utilizing performance-optimized pure CSS animations',
+      'Strict WCAG AA color contrast compliance and semantic HTML5 tag hierarchy'
     ]
   }
 ];
