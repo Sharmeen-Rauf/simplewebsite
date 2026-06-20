@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const TYPING_LINES = [
   'AI + FULL-STACK DEVELOPER',
@@ -148,16 +149,25 @@ export default function NeuralIdentity() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button className="btn-cyber" style={{ padding: '12px 28px' }}>
-              <span>EXPLORE MEMORY ARCHIVE</span>
-            </button>
+            <Link href="/projects" className="btn-cyber flex items-center justify-center" style={{ padding: '12px 28px' }}>
+              <span>EXPLORE PROJECTS</span>
+            </Link>
             <a
-              href="mailto:sharmeenpakistan8@gmail.com"
-              className="btn-ghost"
-              style={{ padding: '12px 24px', display: 'inline-flex', alignItems: 'center' }}
+              href="/sharmeen_rauf_cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost flex items-center justify-center"
+              style={{ padding: '12px 24px', borderColor: 'var(--purple)', color: 'var(--purple)' }}
+            >
+              DOWNLOAD CV
+            </a>
+            <Link
+              href="/contactus"
+              className="btn-ghost flex items-center justify-center"
+              style={{ padding: '12px 24px' }}
             >
               INITIATE CONTACT
-            </a>
+            </Link>
           </div>
 
           {/* Social Links */}
