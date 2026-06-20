@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 const TYPING_LINES = [
   'FULL-STACK DEVELOPER',
+  'PROMPT ENGINEER',
   'DEVOPS ENGINEER',
   'CYBERSECURITY SPECIALIST',
   'PROBLEM SOLVER',
@@ -137,7 +138,7 @@ export default function NeuralIdentity() {
           <div className="grid grid-cols-3 gap-4">
             {[
               { val: '4+', label: 'YEARS ACTIVE', color: 'var(--cyan)' },
-              { val: '5+', label: 'PROJECTS SHIPPED', color: 'var(--purple)' },
+              { val: '7+', label: 'PROJECTS SHIPPED', color: 'var(--purple)' },
               { val: '3+', label: 'ROLES HELD', color: 'var(--neon-green)' },
             ].map(({ val, label, color }) => (
               <div key={label} className="cyber-card p-4 text-center">

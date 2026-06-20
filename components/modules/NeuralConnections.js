@@ -24,6 +24,7 @@ const SKILL_NODES = [
   // Other cluster
   { id: 'python',   label: 'Python',    level: 70, cluster: 'AI',        x: 0.22, y: 0.7,  color: '#ff9500' },
   { id: 'security', label: 'CyberSec',  level: 76, cluster: 'AI',        x: 0.35, y: 0.78, color: '#ff9500' },
+  { id: 'prompt',   label: 'Prompt Eng',level: 95, cluster: 'AI',        x: 0.15, y: 0.82, color: '#ff9500' },
 ];
 
 const CONNECTIONS = [
@@ -34,6 +35,7 @@ const CONNECTIONS = [
   ['docker', 'linux'], ['docker', 'git'],
   ['git', 'react'], ['git', 'node'],
   ['python', 'security'], ['python', 'git'],
+  ['prompt', 'python'], ['prompt', 'security'],
   ['ts', 'node'],
 ];
 

@@ -13,14 +13,14 @@ const FREQUENCIES = [
 const MOODS = ['DEVELOPER', 'EDUCATOR', 'LEARNER', 'BUILDER', 'SECURITY ADVOCATE', 'OPEN SOURCE CONTRIB'];
 
 const INTERESTS = [
-  { icon: '⚡', label: 'Neural Networks' },
-  { icon: '🎵', label: 'Music Production' },
+  { icon: '💃', label: 'Dance & Rhythm' },
+  { icon: '🏎️', label: 'F1 Racing' },
+  { icon: '🏏', label: 'Cricket' },
+  { icon: '🤼‍♂️', label: 'WWE Wrestling' },
+  { icon: '🚗', label: 'Supercars' },
+  { icon: '⚡', label: 'AI & Prompt Eng' },
   { icon: '🔐', label: 'CyberSecurity' },
-  { icon: '🌐', label: 'Web Performance' },
   { icon: '🛸', label: 'Sci-Fi Universes' },
-  { icon: '📡', label: 'AI Research' },
-  { icon: '🎮', label: 'Game Development' },
-  { icon: '☁️', label: 'Cloud Infra' },
 ];
 
 function EqBar({ color, delay = 0, playing }) {
