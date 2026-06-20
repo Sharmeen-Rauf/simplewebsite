@@ -87,6 +87,10 @@ const COMMANDS = {
   experience: () => [
     { text: '> DECRYPTING MISSION LOGS...', type: 'info' },
     { text: '', type: 'blank' },
+    { text: '  [TX-005] Full Stack Software Engineer', type: 'data' },
+    { text: '           Launch Software House | Jan 2025 — PRESENT', type: 'info' },
+    { text: '           Built: PitchRadar, CoreTECH, BoothBook, Peek-A-Booth, Launch X, EscaBiz', type: 'info' },
+    { text: '', type: 'blank' },
     { text: '  [TX-001] Frontend Developer (Teacher)', type: 'data' },
     { text: '           Shamsi School | Aug 2023 — PRESENT', type: 'info' },
     { text: '', type: 'blank' },

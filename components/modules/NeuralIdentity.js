@@ -137,7 +137,7 @@ export default function NeuralIdentity() {
             {[
               { val: '4+', label: 'YEARS ACTIVE', color: 'var(--cyan)' },
               { val: '10+', label: 'PROJECTS SHIPPED', color: 'var(--purple)' },
-              { val: '3+', label: 'ROLES HELD', color: 'var(--neon-green)' },
+              { val: '5+', label: 'ROLES HELD', color: 'var(--neon-green)' },
             ].map(({ val, label, color }) => (
               <div key={label} className="cyber-card p-4 text-center">
                 <div className="font-display text-2xl font-bold mb-1" style={{ color }}>{val}</div>

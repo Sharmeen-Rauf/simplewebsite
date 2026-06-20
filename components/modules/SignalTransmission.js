@@ -5,6 +5,23 @@ import { usePathname } from 'next/navigation';
 
 const EXPERIENCES = [
   {
+    id: 'TX-005',
+    type: 'MISSION',
+    role: 'Full Stack Software Engineer',
+    company: 'Launch Software House',
+    period: 'Jan 2025 — Present',
+    location: 'Karachi, Pakistan',
+    status: 'ACTIVE',
+    clearance: 'LEVEL-5',
+    color: 'var(--cyan)',
+    points: [
+      'Engineered scalable B2B SaaS workspaces, CRM pipelines, and enterprise-grade ERP distribution portals.',
+      'Developed PitchRadar AI, CoreTECH Solar ERP, BoothBook CRM, Peek-A-Booth USA/PK, Launch X, and EscaBiz.',
+      'Automated client acquisition funnels using background APIs and custom LLM outreach sequencing.',
+      'Implemented high-performance virtual rendering, secure RLS queries, and SEO static site generation.',
+    ],
+  },
+  {
     id: 'TX-001',
     type: 'MISSION',
     role: 'Frontend Developer (Teacher)',
