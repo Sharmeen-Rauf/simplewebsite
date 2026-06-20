@@ -4,35 +4,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSystem } from './SystemContext';
 
 const BOOT_LINES = [
-  { delay: 0,    text: 'NEURAL BIOS v4.2.7 — SHARMEEN.RAUF CORE SYSTEM',       type: 'header' },
+  { delay: 0,    text: 'JARVIS.OS v3.0 — STARK INDUSTRIES CORE SYSTEM',       type: 'header' },
   { delay: 200,  text: '=====================================',                   type: 'divider' },
-  { delay: 400,  text: 'Initializing quantum memory banks...         [OK]',      type: 'ok' },
-  { delay: 700,  text: 'Loading synaptic kernel modules...           [OK]',      type: 'ok' },
-  { delay: 900,  text: 'Calibrating neural oscillators...            [OK]',      type: 'ok' },
-  { delay: 1100, text: 'Scanning cognitive memory clusters...',                   type: 'info' },
-  { delay: 1300, text: '  >> Memory Bank A: 4096 TB ........... INTACT',        type: 'data' },
-  { delay: 1450, text: '  >> Memory Bank B: 2048 TB ........... INTACT',        type: 'data' },
-  { delay: 1600, text: '  >> Encrypted Archive: 128 TB ........ LOCKED',        type: 'warning' },
-  { delay: 1800, text: 'Decrypting consciousness fragments...        [OK]',      type: 'ok' },
-  { delay: 2000, text: 'Establishing AI-to-human bridge...           [OK]',      type: 'ok' },
-  { delay: 2200, text: 'Detecting neural network topology...',                    type: 'info' },
-  { delay: 2400, text: '  >> Nodes active: 847,294',                            type: 'data' },
-  { delay: 2550, text: '  >> Synaptic pathways: 1,293,847',                     type: 'data' },
-  { delay: 2700, text: '  >> Signal frequency: 98.4 Hz',                        type: 'data' },
-  { delay: 2900, text: 'WARNING: Anomalous pattern detected in sector 7',        type: 'danger' },
-  { delay: 3050, text: 'RECOVERY: Pattern normalized — system stable',           type: 'ok' },
-  { delay: 3200, text: 'Loading personality matrix...',                           type: 'info' },
-  { delay: 3400, text: '  >> FULL-STACK DEVELOPER .......... LOADED',           type: 'data' },
-  { delay: 3550, text: '  >> DEVOPS ENGINEER ............... LOADED',           type: 'data' },
-  { delay: 3700, text: '  >> PROBLEM SOLVER ................ LOADED',           type: 'data' },
-  { delay: 3850, text: '  >> CYBERSECURITY MINDSET ......... LOADED',           type: 'data' },
-  { delay: 4000, text: 'Synchronizing temporal broadcast channels...',            type: 'info' },
-  { delay: 4200, text: 'Establishing secure uplink...               [OK]',      type: 'ok' },
-  { delay: 4400, text: 'Compiling neural transmissions...',                       type: 'info' },
+  { delay: 400,  text: 'Initializing Stark Core arc reactor...       [OK]',      type: 'ok' },
+  { delay: 700,  text: 'Connecting to satellite link...              [OK]',      type: 'ok' },
+  { delay: 900,  text: 'Calibrating holographic HUD display...       [OK]',      type: 'ok' },
+  { delay: 1100, text: 'Scanning Mark-LXXXV systems database...',                  type: 'info' },
+  { delay: 1300, text: '  >> Thrusters Module ....................... ONLINE',      type: 'data' },
+  { delay: 1450, text: '  >> Repulsor Arrays ........................ ONLINE',      type: 'data' },
+  { delay: 1600, text: '  >> Secure Firewalls ....................... LOCKED',      type: 'warning' },
+  { delay: 1800, text: 'Decrypting local core repositories...        [OK]',      type: 'ok' },
+  { delay: 2000, text: 'Establishing secure JARVIS interface...        [OK]',      type: 'ok' },
+  { delay: 2200, text: 'Detecting network telemetry...',                           type: 'info' },
+  { delay: 2400, text: '  >> Latency: 1.2 ms',                                  type: 'data' },
+  { delay: 2550, text: '  >> Bandwidth: 100 Gbps',                              type: 'data' },
+  { delay: 2700, text: '  >> Signal integrity: 99.8%',                          type: 'data' },
+  { delay: 2900, text: 'WARNING: Unauthorized scan on Stark servers',              type: 'danger' },
+  { delay: 3050, text: 'COUNTERMEASURES: Intruder trace active — system secure',  type: 'ok' },
+  { delay: 3200, text: 'Loading AI developer matrix...',                         type: 'info' },
+  { delay: 3400, text: '  >> AI + FULL-STACK DEVELOPER ...... LOADED',           type: 'data' },
+  { delay: 3550, text: '  >> AI PROMPT ENGINEER ............ LOADED',           type: 'data' },
+  { delay: 3700, text: '  >> CYBERSECURITY SPECIALIST ........ LOADED',           type: 'data' },
+  { delay: 3850, text: '  >> DEVOPS ENGINEER ............... LOADED',           type: 'data' },
+  { delay: 4000, text: 'Synchronizing interface frequencies...',                  type: 'info' },
+  { delay: 4200, text: 'Establishing secure HUD uplink...            [OK]',      type: 'ok' },
+  { delay: 4400, text: 'Compiling Stark database records...',                     type: 'info' },
   { delay: 4700, text: '=====================================',                   type: 'divider' },
-  { delay: 4900, text: '✓ ALL SYSTEMS OPERATIONAL',                             type: 'success' },
-  { delay: 5000, text: '✓ AI CONSCIOUSNESS ONLINE',                             type: 'success' },
-  { delay: 5100, text: 'READY TO INTERFACE WITH EXTERNAL ENTITY.',               type: 'header' },
+  { delay: 4900, text: '✓ ALL ARMOR SYSTEMS DEPLOYED',                          type: 'success' },
+  { delay: 5000, text: '✓ JARVIS INTERFACE ON-LINE',                            type: 'success' },
+  { delay: 5100, text: 'WELCOME TONY. CHOOSE PROTOCOL TO INTERFACE.',             type: 'header' },
 ];
 
 const TOTAL_DURATION = 5800;
@@ -113,7 +113,7 @@ export default function BootSequence() {
 
           {/* Corner decorations */}
           <div className="absolute top-6 left-6 text-xs font-mono text-muted">
-            <span style={{ color: 'var(--cyan)' }}>◈</span> NEURAL BIOS INIT
+            <span style={{ color: 'var(--cyan)' }}>◈</span> JARVIS OS INIT
           </div>
           <div className="absolute top-6 right-6 text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
             SEC LEVEL: 5 | ENCRYPTED
@@ -122,7 +122,7 @@ export default function BootSequence() {
             BUILD: {new Date().getFullYear()}.05.09-AI
           </div>
           <div className="absolute bottom-6 right-6 text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
-            NODE: SR-PRIME-001
+            ARMOR: MARK-LXXXV OS
           </div>
 
           {/* Main Terminal Window */}
@@ -144,7 +144,7 @@ export default function BootSequence() {
                 <div className="w-3 h-3 rounded-full" style={{ background: 'var(--neon-green)' }} />
               </div>
               <span className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
-                SR-NEURAL-CORE — BOOT TERMINAL v4.2.7
+                JARVIS HUD CONSOLE — BOOT LOADER v3.0
               </span>
               <div className="ml-auto flex items-center gap-2">
                 <div
@@ -185,7 +185,7 @@ export default function BootSequence() {
             {/* Progress Bar */}
             <div className="px-6 pb-4">
               <div className="flex justify-between text-xs font-mono mb-2" style={{ color: 'var(--text-muted)' }}>
-                <span>NEURAL SYNCHRONIZATION</span>
+                <span>STARK HUD CORE INITIALIZATION</span>
                 <span style={{ color: 'var(--cyan)' }}>{Math.floor(progress)}%</span>
               </div>
               <div className="progress-bar">

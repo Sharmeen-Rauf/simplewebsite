@@ -11,13 +11,13 @@ import AiTerminal from './modules/AiTerminal';
 import ContactTransmission from './modules/ContactTransmission';
 
 const NAV_ITEMS = [
-  { id: 'identity',    icon: '◉', label: 'IDENTITY',    sublabel: 'Neural Core' },
-  { id: 'projects',   icon: '⬡', label: 'MEMORY',      sublabel: 'Archive' },
-  { id: 'skills',     icon: '⬢', label: 'NEURAL',      sublabel: 'Connections' },
-  { id: 'experience', icon: '◈', label: 'SIGNAL',      sublabel: 'Transmission' },
-  { id: 'frequency',  icon: '◎', label: 'FREQUENCY',   sublabel: 'Chamber' },
-  { id: 'terminal',   icon: '⌘', label: 'TERMINAL',    sublabel: 'AI Console' },
-  { id: 'contact',    icon: '⟟', label: 'CONTACT',     sublabel: 'Transmit' },
+  { id: 'identity',    icon: '◉', label: 'IDENTITY',    sublabel: 'Stark Core' },
+  { id: 'projects',   icon: '⬡', label: 'ARCHIVES',     sublabel: 'Project Log' },
+  { id: 'skills',     icon: '⬢', label: 'SYSTEMS',      sublabel: 'HUD Specs' },
+  { id: 'experience', icon: '◈', label: 'MISSIONS',     sublabel: 'Log History' },
+  { id: 'frequency',  icon: '◎', label: 'REACTOR',      sublabel: 'Core Diagnostic' },
+  { id: 'terminal',   icon: '⌘', label: 'JARVIS',       sublabel: 'Terminal' },
+  { id: 'contact',    icon: '⟟', label: 'UPLINK',       sublabel: 'Secure Comms' },
 ];
 
 const MODULE_COMPONENTS = {
@@ -65,7 +65,7 @@ function DiagnosticBar({ diagnostics, audioMuted, setAudioMuted, systemState, SY
             SHARMEEN.RAUF
           </span>
           <span className="font-mono text-xs" style={{ color: 'var(--text-muted)', lineHeight: 1.2, fontSize: '9px' }}>
-            NEURAL BROADCAST CORE
+            JARVIS HUD INTERFACE v3.0
           </span>
         </div>
       </div>
@@ -202,7 +202,7 @@ function SystemFooter({ logs }) {
       </div>
       <div className="ml-auto flex items-center gap-3 flex-shrink-0">
         <span className="font-mono text-xs" style={{ color: 'var(--text-muted)', fontSize: '10px' }}>
-          BROADCAST CORE v4.2.7
+          MARK-LXXXV OS v3.0.4
         </span>
       </div>
     </footer>

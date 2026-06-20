@@ -4,13 +4,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const TYPING_LINES = [
-  'FULL-STACK DEVELOPER',
-  'PROMPT ENGINEER',
+  'AI + FULL-STACK DEVELOPER',
+  'AI PROMPT ENGINEER',
+  'FULL-STACK ARCHITECT',
   'DEVOPS ENGINEER',
   'CYBERSECURITY SPECIALIST',
-  'PROBLEM SOLVER',
-  'AI ENTHUSIAST',
-  'REACT / NEXT.JS ARCHITECT',
 ];
 
 function useTypingEffect(lines, speed = 80, pauseMs = 1800) {
@@ -95,7 +93,7 @@ export default function NeuralIdentity() {
           <div className="flex items-center gap-3">
             <div className="w-8 h-px" style={{ background: 'var(--cyan)' }} />
             <span className="font-mono text-xs tracking-widest" style={{ color: 'var(--cyan)' }}>
-              NEURAL IDENTITY / NODE SR-001
+              STARK HUD IDENTITY / MARK-LXXXV OS
             </span>
           </div>
 
@@ -131,14 +129,14 @@ export default function NeuralIdentity() {
 
           {/* Description */}
           <p className="text-lg leading-relaxed max-w-lg" style={{ color: 'var(--text-secondary)' }}>
-            Full-stack architect with a security-first mindset. Building scalable AI-driven systems and immersive digital experiences from <span style={{ color: 'var(--cyan)' }}>DHA Suffah University</span> in Karachi, Pakistan.
+            AI + Full-Stack Developer & Prompt Engineer building scalable, high-performance web systems and automated AI workspaces from <span style={{ color: 'var(--cyan)' }}>DHA Suffah University</span> in Karachi, Pakistan.
           </p>
 
           {/* Stats Row */}
           <div className="grid grid-cols-3 gap-4">
             {[
               { val: '4+', label: 'YEARS ACTIVE', color: 'var(--cyan)' },
-              { val: '7+', label: 'PROJECTS SHIPPED', color: 'var(--purple)' },
+              { val: '10+', label: 'PROJECTS SHIPPED', color: 'var(--purple)' },
               { val: '3+', label: 'ROLES HELD', color: 'var(--neon-green)' },
             ].map(({ val, label, color }) => (
               <div key={label} className="cyber-card p-4 text-center">
@@ -292,7 +290,7 @@ export default function NeuralIdentity() {
                 whiteSpace: 'nowrap',
               }}
             >
-              ID: SR-PRIME-001
+              ARMOR: MARK-LXXXV
             </div>
           </motion.div>
 

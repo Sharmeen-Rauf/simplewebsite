@@ -101,6 +101,105 @@ const PROJECTS = [
   },
   {
     id: 'PROJ-004',
+    title: 'Peek-A-Booth USA',
+    classification: 'TOP SECRET',
+    tagline: 'Location-Based Event Rental Platform serving 500+ US Cities',
+    description: 'Flagship multi-tenant location-based event rental platform optimized for over 500 US cities with dynamic SEO generation, dynamic routing, and complex booking engines.',
+    overview: 'Peek-A-Booth USA is a flagship location-based event rental platform optimized for over 500 cities across the United States. Features include complex dynamic routing, location grids, custom booking carousels, and accordion-style FAQs.',
+    tech: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    status: 'COMPLETE',
+    icon: '🇺🇸',
+    color: 'var(--cyan)',
+    clearance: 5,
+    lines: 15400,
+    commits: 320,
+    liveUrl: 'https://www.peekaboothusa.com',
+    features: [
+      '500+ dynamically generated local city landing pages for automated organic SEO expansion',
+      'Multi-breakpoint testimonials carousel showing multiple reviews simultaneously',
+      'Interactive 360° photo booth and Vogue Magazine box grids with hover scale effects',
+      'Advanced multi-field booking engine matching event parameters with real-time package values',
+      'Custom styled accordion-based FAQ section with height expand transitions'
+    ],
+    impact: [
+      'Captured major search volumes in local metro markets across 500+ US cities',
+      'Automated regional price quoting and tax tiers, eliminating manual calculations',
+      'Premium dark UI overlay design enhancing visual credibility and reservation ratios'
+    ],
+    innovations: [
+      'Scalable static site generation (SSG) for 500+ local markets with edge caching',
+      'High-performance carousel rendering with custom swipe gestures for mobile viewport',
+      'Highly optimized WebP images and dynamic video layouts'
+    ]
+  },
+  {
+    id: 'PROJ-005',
+    title: 'Peek-A-Booth PK',
+    classification: 'CLASSIFIED',
+    tagline: 'Premium Photo Booth & Event Rental Experience in Pakistan',
+    description: 'Pakistan’s premier photo booth rental service website featuring horizontal logo loops, automated statistic count-ups, and reactive lead calculators.',
+    overview: 'Peek-A-Booth PK is Pakistan\'s premier photo booth rental service, featuring animated video backgrounds, automated stats trackers (Events Hosted, Pictures Taken, Cities Covered), infinite loop logo carousels, responsive photo galleries, and real-time validated quote calculators.',
+    tech: ['Next.js 14', 'React', 'Tailwind CSS', 'CSS Modules', 'Vercel'],
+    status: 'COMPLETE',
+    icon: '📸',
+    color: 'var(--danger-red)',
+    clearance: 4,
+    lines: 8400,
+    commits: 210,
+    liveUrl: 'https://www.peekaboothpk.com',
+    features: [
+      'Animated video backgrounds and floating sticky communication buttons',
+      'Grid layout collections showing detailed packages and options',
+      'Infinite-scrolling brand partner logo carousel with pause on hover',
+      'Masonry Instagram-style image gallery with interactive lightbox preview',
+      'Interactive quote request form with client-side field validation'
+    ],
+    impact: [
+      'Streamlined B2B lead inquiries by presenting visual booths in grids',
+      '95% speed index rating on Vercel CDN via lazy-loading and WebP configurations',
+      'Automated CRM diagnostic input logs on quote submissions'
+    ],
+    innovations: [
+      'CSS animations for infinite loop brand sliders without JS overhead',
+      'Progressive counter script increments numbers from 0 on viewport trigger',
+      'Dynamic header opacity shifts on scroll'
+    ]
+  },
+  {
+    id: 'PROJ-006',
+    title: 'Launch X Digital Agency',
+    classification: 'CLASSIFIED',
+    tagline: 'High-Impact B2B Digital Agency & Web Design Platform',
+    description: 'High-performance B2B digital agency platform designed to showcase marketing services, custom client portals, timelines, and case study grids.',
+    overview: 'Launch X is a high-performance B2B digital agency platform designed to showcase marketing services, custom client portals, timelines, and case study grids with subtle micro-animations.',
+    tech: ['Next.js 14', 'Tailwind CSS', 'Framer Motion', 'Lucide Icons'],
+    status: 'COMPLETE',
+    icon: '🚀',
+    color: 'var(--purple)',
+    clearance: 4,
+    lines: 9200,
+    commits: 245,
+    liveUrl: 'https://poweredbylaunchx.com/',
+    features: [
+      '11+ pages including service sub-pages (Web, SEO, performance marketing, branding)',
+      'Hero section with animated abstract shapes (SVG/Spline) and floating CTA elements',
+      'Interactive 4-Step Process Timeline with visual connecting paths between steps',
+      'Responsive portfolio filtering engine, testimonials carousel, and FAQ accordion',
+      'Highly validating Contact forms and dynamic Blog section (3 columns)'
+    ],
+    impact: [
+      'Streamlined client discovery and onboarding process with 12 detailed components',
+      'Raised B2B service inquiry rate by presenting structured process workflows',
+      'Excellent Google Lighthouse performance indices (95+)'
+    ],
+    innovations: [
+      'Interactive timeline animation components using Framer Motion',
+      'Custom responsive masonry layout for case studies and branding sheets',
+      'WCAG AA compliant color contrast and structural accessibility features'
+    ]
+  },
+  {
+    id: 'PROJ-007',
     title: 'Antigravity Social Tracker',
     classification: 'RESTRICTED',
     tagline: 'Social Media Quota & Content Audit Platform',
@@ -132,7 +231,7 @@ const PROJECTS = [
     ]
   },
   {
-    id: 'PROJ-005',
+    id: 'PROJ-008',
     title: 'Afforah Luxury Fashion',
     classification: 'UNCLASSIFIED',
     tagline: 'South Asian Textile E-Commerce Brand',
@@ -147,24 +246,25 @@ const PROJECTS = [
     commits: 215,
     liveUrl: 'https://afforahgra.vercel.app/',
     features: [
-      'Bilingual interface (English + Urdu) celebrating cultural heritage',
-      'Poetic narrative-driven product catalog with custom Urdu typography',
-      'Yaadon ka Sandook (Memories Chest) interactive gallery experience',
-      'Day/Night theme toggle with fluid animations'
+      'Bilingual interface (English + Urdu) celebrating cultural heritage with custom fonts',
+      'Chapter-based product showcase catalog (Safha Ba Safha, Naya Baab)',
+      'Yaadon ka Sandook (Memories Chest) interactive storytelling gallery experience',
+      'Zoomable product detail page with care guides, repairs, and customization cards',
+      'Day/Night theme toggle with localStorage theme persistence and smooth transitions'
     ],
     impact: [
-      'Unique cultural branding establishing high luxury market placement',
-      'Premium customer UX boosting average order values (PKR 45k - 325k)',
-      'Fully responsive, immersive mobile-first experience'
+      'Unique cultural branding establishing high luxury market placement (PKR 45k - 325k)',
+      'Premium dark UI overlay design boosting Average Order Value (AOV)',
+      'Fully responsive, immersive mobile-first bilingual experience'
     ],
     innovations: [
       'Premium custom glassmorphic styling and transition system',
-      'Highly optimized Next.js Image lazy-loading layouts',
-      'Bilingual layout engine supporting RTL and LTR content directions'
+      'Highly optimized Next.js Image lazy-loading layouts with blur placeholders',
+      'Bilingual layout engine supporting RTL (Urdu) and LTR (English) content directions'
     ]
   },
   {
-    id: 'PROJ-006',
+    id: 'PROJ-009',
     title: 'Naye Talaash Tourism',
     classification: 'UNCLASSIFIED',
     tagline: 'Pakistan Tourism & Travel Platform',
@@ -179,24 +279,25 @@ const PROJECTS = [
     commits: 310,
     liveUrl: 'https://www.nayitalaash.com/',
     features: [
-      'Tour Discovery & Category filters (Hunza, Skardu, Azad Kashmir, Swat)',
-      'Public group tour registry with dynamic pricing from Rs 11,000',
-      'Custom Itinerary Builder and free tour quote calculator',
-      'Integrated WhatsApp & direct booking support channels'
+      'Tour packages showcase (6-8 cards) and destination grid (8-10 cards)',
+      'Seasonal filter ("When to go?" - Spring/Summer/Autumn/Winter)',
+      'Detailed booking widget tracking travel dates, travelers, and budget ranges',
+      'Search and filter bar with auto-populating dropdown suggestions',
+      'Google Maps API integration showing destinations, and direct WhatsApp links'
     ],
     impact: [
       'Promoted sustainable and community-engaged local tourism',
       'Boosted local valley economies by linking guides, transport, and hotels',
-      'Made remote adventure tourism organized and safe'
+      'WhatsApp integration dramatically raised quick booking conversions'
     ],
     innovations: [
       'Mobile-first responsive booking form structures',
       'Integrated structured metadata schema for local tour SEO',
-      'Custom map integration and seasonal destination advisors'
+      'Dynamic package filtering using React state metrics'
     ]
   },
   {
-    id: 'PROJ-007',
+    id: 'PROJ-010',
     title: 'EscaBiz B2B Platform',
     classification: 'CLASSIFIED',
     tagline: 'Staff Augmentation & Lead Gen SaaS',
@@ -345,14 +446,14 @@ export default function MemoryArchive() {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-px" style={{ background: 'var(--purple)' }} />
           <span className="font-mono text-xs tracking-widest" style={{ color: 'var(--purple)' }}>
-            CLASSIFIED MEMORY ARCHIVE / SECTOR 7-ALPHA
+            STARK ARCHIVES / PROJECT LOG
           </span>
         </div>
         <h2 className="font-display font-black mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--text-primary)' }}>
-          MEMORY<span style={{ color: 'var(--purple)', textShadow: '0 0 20px var(--purple)' }}> ARCHIVE</span>
+          STARK<span style={{ color: 'var(--purple)', textShadow: '0 0 20px var(--purple)' }}> ARCHIVES</span>
         </h2>
         <p className="font-mono text-sm" style={{ color: 'var(--text-secondary)' }}>
-          {PROJECTS.length} encrypted production nodes verified. Select a record to decrypt structural metrics and live logs.
+          {PROJECTS.length} active production nodes verified. Select a record to decrypt structural metrics and live logs.
         </p>
       </motion.div>
 
@@ -377,6 +478,117 @@ export default function MemoryArchive() {
             />
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* HUD Global Patterns & Tech Analytics Dashboard */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="mt-16 p-6 rounded-lg glass-panel relative overflow-hidden"
+        style={{ border: '1px solid rgba(0, 240, 255, 0.12)', background: 'rgba(5, 5, 8, 0.85)' }}
+      >
+        {/* Subtle scanning bar */}
+        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-30 animate-pulse-cyan" />
+        
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-1.5 h-6 bg-cyan-400" />
+          <h3 className="font-display text-base font-bold tracking-wider" style={{ color: 'var(--text-primary)' }}>
+            STARK OS — SHARED FRONTEND DIAGNOSTICS & ENGINE SPECS
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Col 1 */}
+          <div className="space-y-3">
+            <span className="font-mono text-xs text-white/40 block">10 COMMON COMPONENTS:</span>
+            <div className="space-y-1.5">
+              {[
+                'Sticky Header & Responsive Menu',
+                'Video & Parallax Hero Overlay',
+                'Large Counter Metric Cards',
+                'Multi-Breakpoint Sliders',
+                'Responsive Card Grids (4→2→1)',
+                'Auto-Rotating Testimonials',
+                'Validated Lead Capture Forms',
+                'Smooth FAQ Accordion Boxes',
+                'Multi-Column Dynamic Footer',
+                'Glassmorphic Overlay Modals'
+              ].map(item => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="text-[9px] text-[var(--cyan)]">⬢</span>
+                  <span className="font-mono text-xs text-[var(--text-secondary)]">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Col 2 */}
+          <div className="space-y-3">
+            <span className="font-mono text-xs text-white/40 block">HUD ANIMATION MATRIX:</span>
+            <div className="space-y-1.5">
+              {[
+                'AOS (Animate on Scroll) hooks',
+                'Easing counter increment algorithms',
+                'Hover triggers (scale, shadow, text)',
+                'Parallax viewport dividers',
+                'Stagger sequences with custom delays',
+                'Dynamic SVG path morph animations',
+                'Framer Motion layout animations',
+                'Canvas network node rendering'
+              ].map(item => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="text-[9px] text-purple-400">⚡</span>
+                  <span className="font-mono text-xs text-[var(--text-secondary)]">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Col 3 */}
+          <div className="space-y-3">
+            <span className="font-mono text-xs text-white/40 block">PERFORMANCE SUITE:</span>
+            <div className="space-y-1.5">
+              {[
+                'Responsive image srcsets',
+                'Progressive WebP encoding',
+                'Lazy-load attributes (loading="lazy")',
+                'BlurDataURL image placeholders',
+                'Route-based code splitting chunks',
+                'Tailwind purger (removing unused CSS)',
+                'Edge caching & stale-while-revalidate',
+                'Variable font subsets preloading'
+              ].map(item => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="text-[9px] text-green-400">✓</span>
+                  <span className="font-mono text-xs text-[var(--text-secondary)]">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Col 4 */}
+          <div className="space-y-3">
+            <span className="font-mono text-xs text-white/40 block">PRODUCTION STANDARDS:</span>
+            <div className="space-y-1.5">
+              {[
+                'Min 48px tap targets for mobile layout',
+                'WCAG AA standard contrast ratios',
+                'ARIA labels & structural semantic markup',
+                'Strict key-value column mapping engines',
+                'Fuzzy duplicate record merges (60 FPS)',
+                'Resilient RLS Postgres security models',
+                'Self-healing DB schema fallbacks',
+                'Real-time WebSocket subscriptions'
+              ].map(item => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="text-[9px] text-orange-400">◈</span>
+                  <span className="font-mono text-xs text-[var(--text-secondary)]">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </motion.div>
 
       {/* Expanded Detail Modal */}
@@ -475,7 +687,7 @@ export default function MemoryArchive() {
 
                 {activeTab === 'features' && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
-                    <span className="font-mono text-xs block text-white/40">AUTOMATED CORE CAPABILITIES:</span>
+                    <span className="font-mono text-xs block text-white/40">CORE CAPABILITIES & LAYOUTS:</span>
                     <div className="space-y-2">
                       {selected.features.map((feat, i) => (
                         <div key={i} className="flex items-start gap-2.5">

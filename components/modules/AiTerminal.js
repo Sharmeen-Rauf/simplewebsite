@@ -6,63 +6,66 @@ import { useSystem } from '../SystemContext';
 const COMMANDS = {
   help: () => [
     { text: '╔════════════════════════════════════╗', type: 'header' },
-    { text: '║   SR NEURAL CORE — COMMAND INDEX   ║', type: 'header' },
+    { text: '║   SR JARVIS CORE — COMMAND INDEX   ║', type: 'header' },
     { text: '╚════════════════════════════════════╝', type: 'header' },
     { text: '', type: 'blank' },
-    { text: '  identity      — Load neural identity data', type: 'cmd' },
-    { text: '  about         — About this system', type: 'cmd' },
-    { text: '  projects      — List memory archive nodes', type: 'cmd' },
-    { text: '  skills        — Display synaptic frequency map', type: 'cmd' },
-    { text: '  experience    — Decrypt mission logs', type: 'cmd' },
-    { text: '  contact       — Open transmission console', type: 'cmd' },
+    { text: '  identity      — Load Stark identity core logs', type: 'cmd' },
+    { text: '  about         — About Stark JARVIS OS', type: 'cmd' },
+    { text: '  projects      — List Stark archive nodes', type: 'cmd' },
+    { text: '  skills        — Display active HUD system specs', type: 'cmd' },
+    { text: '  experience    — Decrypt mission log history', type: 'cmd' },
+    { text: '  contact       — Open comm uplink console', type: 'cmd' },
     { text: '  clear         — Flush display buffer', type: 'cmd' },
     { text: '  hack          — ⚠ Initiate security breach simulation', type: 'cmd' },
     { text: '  self-destruct — ⚠⚠ Trigger neural implosion protocol', type: 'cmd' },
-    { text: '  ping          — Test neural uplink latency', type: 'cmd' },
-    { text: '  whoami        — Identity verification', type: 'cmd' },
+    { text: '  ping          — Test Stark satellite latency', type: 'cmd' },
+    { text: '  whoami        — Identity verification scan', type: 'cmd' },
     { text: '  matrix        — Activate matrix mode', type: 'cmd' },
     { text: '', type: 'blank' },
     { text: '  NOTE: Hidden commands exist. Keep exploring.', type: 'info' },
   ],
 
   identity: () => [
-    { text: '> LOADING IDENTITY RECORD...', type: 'info' },
-    { text: '> DECRYPTING NODE SR-PRIME-001', type: 'info' },
+    { text: '> LOADING HUD IDENTITY RECORD...', type: 'info' },
+    { text: '> DECRYPTING STARK ARMOR SYSTEM SUITE', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  NAME:         SHARMEEN RAUF', type: 'data' },
-    { text: '  NODE ID:      SR-PRIME-001', type: 'data' },
+    { text: '  ARMOR:        MARK-LXXXV OS', type: 'data' },
     { text: '  CLEARANCE:    LEVEL-5 / FULL ACCESS', type: 'data' },
-    { text: '  ROLE:         FULL-STACK DEVELOPER & PROMPT ENGINEER', type: 'data' },
-    { text: '  SPECIALITY:   AI / FULL-STACK / DEVOPS / CYBERSEC', type: 'data' },
+    { text: '  ROLE:         AI + FULL-STACK DEVELOPER & PROMPT ENG', type: 'data' },
+    { text: '  SPECIALITY:   AI / WEB DESIGN / CYBERSEC / DEVOPS', type: 'data' },
     { text: '  INSTITUTION:  DHA SUFFAH UNIVERSITY', type: 'data' },
     { text: '  LOCATION:     KARACHI, PAKISTAN', type: 'data' },
-    { text: '  STATUS:       ◉ ONLINE', type: 'ok' },
+    { text: '  STATUS:       ◉ ONLINE (SYSTEM ENERGIZED)', type: 'ok' },
   ],
 
   about: () => [
-    { text: '> SR NEURAL BROADCAST CORE v4.2.7', type: 'header' },
+    { text: '> JARVIS HUD CONSOLE v3.0.4', type: 'header' },
     { text: '', type: 'blank' },
-    { text: '  This terminal interfaces with the digital consciousness of', type: 'info' },
-    { text: '  Sharmeen Rauf — Full-stack developer and prompt engineer', type: 'info' },
-    { text: '  with 4+ years of experience building AI-driven, scalable', type: 'info' },
-    { text: '  web applications and teaching the next generation.', type: 'info' },
+    { text: '  This terminal interfaces with the Stark Industries HUD OS of', type: 'info' },
+    { text: '  Sharmeen Rauf — AI + Full-stack developer, prompt engineer, and', type: 'info' },
+    { text: '  cybersecurity specialist with 4+ years of experience building', type: 'info' },
+    { text: '  AI-driven, scalable web applications and automated CRM/ERPs.', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  BUILT WITH: Next.js 15 | Tailwind CSS | Framer Motion', type: 'data' },
     { text: '  GSAP | Canvas API | Web Audio API', type: 'data' },
   ],
 
   projects: () => [
-    { text: '> SCANNING MEMORY ARCHIVE...', type: 'info' },
+    { text: '> SCANNING STARK ARCHIVES...', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  [PROJ-001] PitchRadar AI (B2B SaaS Lead Gen) ..... LIVE', type: 'ok' },
     { text: '  [PROJ-002] CoreTECH Solar ERP (Enterprise ERP) ... PRODUCTION', type: 'ok' },
     { text: '  [PROJ-003] BoothBook CRM (Multi-Tenant SaaS) ...... PRODUCTION', type: 'ok' },
-    { text: '  [PROJ-004] Antigravity Tracker (Social Posting) ... LIVE', type: 'ok' },
-    { text: '  [PROJ-005] Afforah Luxury Textile (E-Commerce) ..... LIVE', type: 'ok' },
-    { text: '  [PROJ-006] Naye Talaash (Pakistan Tourism) ........ LIVE', type: 'ok' },
-    { text: '  [PROJ-007] EscaBiz B2B (Staff Aug & Lead Gen) ..... LIVE', type: 'ok' },
+    { text: '  [PROJ-004] Peek-A-Booth USA (Location Booking) .... LIVE', type: 'ok' },
+    { text: '  [PROJ-005] Peek-A-Booth PK (Event Experience) ..... LIVE', type: 'ok' },
+    { text: '  [PROJ-006] Launch X Agency (B2B Design & Dev) ..... LIVE', type: 'ok' },
+    { text: '  [PROJ-007] Antigravity Tracker (Social Posting) ... LIVE', type: 'ok' },
+    { text: '  [PROJ-008] Afforah Luxury Textile (E-Commerce) ..... LIVE', type: 'ok' },
+    { text: '  [PROJ-009] Naye Talaash (Pakistan Tourism) ........ LIVE', type: 'ok' },
+    { text: '  [PROJ-010] EscaBiz B2B (Staff Aug & Lead Gen) ..... LIVE', type: 'ok' },
     { text: '', type: 'blank' },
-    { text: '  7 NODES FOUND | Navigate to MEMORY module for full access', type: 'info' },
+    { text: '  10 NODES FOUND | Navigate to ARCHIVES module for full details', type: 'info' },
   ],
 
   skills: () => [
@@ -151,10 +154,10 @@ const typeStyle = {
 };
 
 const INITIAL_LINES = [
-  { text: 'SR NEURAL CORE v4.2.7 — INTERACTIVE TERMINAL', type: 'header' },
-  { text: 'Copyright © 2026 Sharmeen Rauf | All transmissions encrypted', type: 'info' },
+  { text: 'JARVIS.OS v3.0 — STARK INDUSTRIES HUD CONSOLE', type: 'header' },
+  { text: 'Copyright © 2026 Sharmeen Rauf | All satellite uplinks secure', type: 'info' },
   { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', type: 'header' },
-  { text: 'Type "help" to list all available commands.', type: 'info' },
+  { text: 'Type "help" to list all active system protocols.', type: 'info' },
   { text: '', type: 'blank' },
 ];
 
@@ -272,11 +275,11 @@ export default function AiTerminal() {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-px" style={{ background: 'var(--neon-green)' }} />
           <span className="font-mono text-xs tracking-widest" style={{ color: 'var(--neon-green)' }}>
-            AI TERMINAL / NEURAL CONSOLE INTERFACE
+            JARVIS CONSOLE / STARK TERMINAL
           </span>
         </div>
         <h2 className="font-display font-black" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-          AI <span style={{ color: 'var(--neon-green)', textShadow: '0 0 20px var(--neon-green)' }}>TERMINAL</span>
+          JARVIS <span style={{ color: 'var(--neon-green)', textShadow: '0 0 20px var(--neon-green)' }}>CONSOLE</span>
         </h2>
       </motion.div>
 
@@ -306,7 +309,7 @@ export default function AiTerminal() {
             ))}
           </div>
           <span className="font-mono text-xs" style={{ color: 'rgba(0,255,136,0.5)' }}>
-            sr@neural-core: ~ terminal v4.2.7
+            tony@stark-hud: ~ jarvis v3.0
           </span>
           <div className="ml-auto flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--neon-green)', boxShadow: '0 0 4px var(--neon-green)', animation: 'pulse-cyan 1.5s ease-in-out infinite' }} />
@@ -337,7 +340,7 @@ export default function AiTerminal() {
           style={{ borderTop: '1px solid rgba(0, 255, 136, 0.1)' }}
         >
           <span className="font-mono text-sm" style={{ color: 'var(--cyan)', flexShrink: 0 }}>
-            sr@neural:~$
+            jarvis@stark:~$
           </span>
           <input
             ref={inputRef}

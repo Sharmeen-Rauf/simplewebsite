@@ -3,14 +3,14 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const FREQUENCIES = [
-  { id: 'lofi', label: 'LO-FI DECAY',     hz: '88.8',  color: '#00f0ff',  mood: 'FOCUS',    desc: 'Deep concentration waves' },
-  { id: 'synth', label: 'SYNTHWAVE',       hz: '100.0', color: '#b026ff',  mood: 'CREATE',   desc: 'Creative cyberpunk pulse' },
-  { id: 'ambient', label: 'AMBIENT CORE', hz: '92.3',  color: '#00ff88',  mood: 'CALM',     desc: 'Neural rest frequency' },
-  { id: 'jazz', label: 'QUANTUM JAZZ',    hz: '96.7',  color: '#ff9500',  mood: 'ENERGY',   desc: 'Chaotic harmonic series' },
-  { id: 'dark', label: 'DARK WAVE',       hz: '78.4',  color: '#ff2244',  mood: 'INTENSE',  desc: 'Low bandwidth encoding' },
+  { id: 'lofi', label: 'MARK-I CORE',     hz: '88.8',  color: '#00f0ff',  mood: 'STABLE',    desc: 'Original palladium core' },
+  { id: 'synth', label: 'MARK-II CORE',    hz: '100.0', color: '#b026ff',  mood: 'OVERCHARGE',desc: 'Vibranium-synth power core' },
+  { id: 'ambient', label: 'MARK-III CORE', hz: '92.3',  color: '#00ff88',  mood: 'STEALTH',   desc: 'Low frequency resonance' },
+  { id: 'jazz', label: 'MARK-IV CORE',    hz: '96.7',  color: '#ff9500',  mood: 'RECHARGE',  desc: 'High output thermal flow' },
+  { id: 'dark', label: 'MARK-V CORE',     hz: '78.4',  color: '#ff2244',  mood: 'BURST',     desc: 'Emergency backup pulse' },
 ];
 
-const MOODS = ['DEVELOPER', 'EDUCATOR', 'LEARNER', 'BUILDER', 'SECURITY ADVOCATE', 'OPEN SOURCE CONTRIB'];
+const MOODS = ['AI PROGRAMMING', 'FULL-STACK INFRA', 'AI PROMPT TUNING', 'CYBERSECURITY AUDIT', 'STARK DATABASE CONFIG'];
 
 const INTERESTS = [
   { icon: '💃', label: 'Dance & Rhythm' },
@@ -97,7 +97,7 @@ function CassetteDeck({ playing, color }) {
         {/* Label */}
         <div className="absolute bottom-2 left-0 right-0 text-center">
           <span className="font-mono text-xs" style={{ color: color + 'aa', fontSize: '8px' }}>
-            SR-BROADCAST-CORE
+            STARK-HUD-OS
           </span>
         </div>
       </div>
@@ -141,14 +141,14 @@ export default function FrequencyChamber() {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-px" style={{ background: activeFreq.color }} />
           <span className="font-mono text-xs tracking-widest" style={{ color: activeFreq.color, transition: 'color 0.5s ease' }}>
-            FREQUENCY CHAMBER / PERSONALITY BROADCAST
+            ARC REACTOR HUD / SYSTEM CONFIG
           </span>
         </div>
         <h2 className="font-display font-black mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
-          FREQUENCY <span style={{ color: activeFreq.color, textShadow: `0 0 20px ${activeFreq.color}`, transition: 'all 0.5s ease' }}>CHAMBER</span>
+          ARC <span style={{ color: activeFreq.color, textShadow: `0 0 20px ${activeFreq.color}`, transition: 'all 0.5s ease' }}>REACTOR</span>
         </h2>
         <p className="font-mono text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Select a broadcast frequency to tune into the neural personality stream
+          Calibrate the Arc Reactor core node to monitor power levels and system stats
         </p>
       </motion.div>
 
@@ -161,7 +161,7 @@ export default function FrequencyChamber() {
           className="space-y-2"
         >
           <div className="font-mono text-xs mb-4" style={{ color: 'var(--text-muted)' }}>
-            BROADCAST CHANNELS ({FREQUENCIES.length}):
+            REACTOR CORES ({FREQUENCIES.length}):
           </div>
           {FREQUENCIES.map(f => (
             <button
@@ -216,7 +216,7 @@ export default function FrequencyChamber() {
               boxShadow: `0 0 6px ${activeFreq.color}`,
               animation: playing ? 'pulse-cyan 1s ease-in-out infinite' : 'none',
             }} />
-            CURRENTLY TRANSMITTING: {activeFreq.label}
+            ARC REACTOR FREQUENCY: {activeFreq.label}
             <span className="ml-auto" style={{ color: 'var(--text-muted)' }}>{activeFreq.hz} MHz</span>
           </div>
 
@@ -263,7 +263,7 @@ export default function FrequencyChamber() {
             className="w-full p-3 rounded-sm text-center font-mono text-sm"
             style={{ border: '1px solid rgba(255,255,255,0.06)', color: 'var(--text-secondary)' }}
           >
-            <span style={{ color: 'var(--text-muted)', fontSize: '10px' }}>CURRENT MODE: </span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '10px' }}>ACTIVE PROTOCOL: </span>
             <motion.span
               key={currentMood}
               initial={{ opacity: 0, y: 6 }}
@@ -283,7 +283,7 @@ export default function FrequencyChamber() {
           transition={{ delay: 0.4 }}
           className="space-y-4"
         >
-          <div className="font-mono text-xs mb-4" style={{ color: 'var(--text-muted)' }}>NEURAL INTEREST MAP:</div>
+          <div className="font-mono text-xs mb-4" style={{ color: 'var(--text-muted)' }}>AUXILIARY HUD SYSTEMS:</div>
           <div className="grid grid-cols-2 gap-3">
             {INTERESTS.map((interest, i) => (
               <motion.div
@@ -302,12 +302,12 @@ export default function FrequencyChamber() {
 
           {/* Personality readout */}
           <div className="glass-panel p-4 rounded-lg">
-            <div className="font-mono text-xs mb-3" style={{ color: 'var(--text-muted)' }}>PERSONALITY VECTORS:</div>
+            <div className="font-mono text-xs mb-3" style={{ color: 'var(--text-muted)' }}>REACTOR STABILITY:</div>
             {[
-              { label: 'Creativity', val: 90, color: activeFreq.color },
-              { label: 'Problem Solving', val: 95, color: 'var(--neon-green)' },
-              { label: 'Leadership', val: 80, color: 'var(--purple)' },
-              { label: 'Curiosity', val: 98, color: 'var(--warning-amber)' },
+              { label: 'Core Output', val: 95, color: activeFreq.color },
+              { label: 'HUD Resolution', val: 98, color: 'var(--neon-green)' },
+              { label: 'Weapon Charge', val: 80, color: 'var(--purple)' },
+              { label: 'Shield Integrity', val: 92, color: 'var(--warning-amber)' },
             ].map(({ label, val, color }) => (
               <div key={label} className="mb-3">
                 <div className="flex justify-between text-xs font-mono mb-1" style={{ color: 'var(--text-secondary)' }}>
