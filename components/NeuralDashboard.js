@@ -1,6 +1,8 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useSystem } from './SystemContext';
 import NeuralIdentity from './modules/NeuralIdentity';
 import MemoryArchive from './modules/MemoryArchive';
@@ -11,13 +13,14 @@ import AiTerminal from './modules/AiTerminal';
 import ContactTransmission from './modules/ContactTransmission';
 
 const NAV_ITEMS = [
-  { id: 'identity',    icon: '◉', label: 'IDENTITY',    sublabel: 'Stark Core' },
-  { id: 'projects',   icon: '⬡', label: 'ARCHIVES',     sublabel: 'Project Log' },
-  { id: 'skills',     icon: '⬢', label: 'SYSTEMS',      sublabel: 'HUD Specs' },
-  { id: 'experience', icon: '◈', label: 'MISSIONS',     sublabel: 'Log History' },
-  { id: 'frequency',  icon: '◎', label: 'REACTOR',      sublabel: 'Core Diagnostic' },
-  { id: 'terminal',   icon: '⌘', label: 'JARVIS',       sublabel: 'Terminal' },
-  { id: 'contact',    icon: '⟟', label: 'UPLINK',       sublabel: 'Secure Comms' },
+  { id: 'identity',    label: 'ABOUT ME',   href: '/' },
+  { id: 'skills',     label: 'SKILLS',      href: '/skills' },
+  { id: 'experience', label: 'EXPERIENCE',  href: '/experience' },
+  { id: 'education',  label: 'EDUCATION',   href: '/education' },
+  { id: 'projects',   label: 'PROJECTS',    href: '/projects' },
+  { id: 'frequency',  label: 'HOBBIES',     href: '/hobbies' },
+  { id: 'terminal',   label: 'CONSOLE',     href: '/terminal' },
+  { id: 'contact',    label: 'CONTACT',     href: '/contactus' },
 ];
 
 const MODULE_COMPONENTS = {
@@ -30,187 +33,115 @@ const MODULE_COMPONENTS = {
   contact:    ContactTransmission,
 };
 
-function DiagnosticBar({ diagnostics, audioMuted, setAudioMuted, systemState, SYSTEM_STATES }) {
-  const isMalfunctioning = systemState === SYSTEM_STATES.MALFUNCTION;
+function TopNavbar() {
+  const pathname = usePathname();
+  const { activeModule, audioMuted, setAudioMuted } = useSystem();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-2 no-select"
-      style={{
-        background: 'rgba(5, 5, 8, 0.9)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: `1px solid ${isMalfunctioning ? 'rgba(255, 34, 68, 0.4)' : 'rgba(0, 240, 255, 0.12)'}`,
-        transition: 'border-color 0.3s ease',
-      }}
-    >
-      {/* Logo */}
-      <div className="flex items-center gap-3">
-        <div className="relative">
-          <span
-            className="font-display text-sm font-bold tracking-widest"
-            style={{ color: 'var(--cyan)', textShadow: '0 0 10px var(--cyan)' }}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a14]/90 border-b border-white/5 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Name Logo */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <span className="font-display font-black text-sm md:text-base text-white tracking-widest group-hover:text-cyan-400 transition-colors">
+            SHARMEEN RAUF
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+        </Link>
+
+        {/* Desktop Links */}
+        <nav className="hidden lg:flex items-center gap-6">
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeModule === item.id || 
+              (item.id === 'experience' && activeModule === 'experience' && pathname === '/experience') ||
+              (item.id === 'education' && activeModule === 'experience' && pathname === '/education');
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-mono text-xs tracking-wider transition-all duration-200 hover:text-white uppercase font-bold relative py-2"
+                style={{
+                  color: isActive ? 'var(--cyan)' : 'var(--text-secondary)',
+                }}
+              >
+                {item.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5"
+                    style={{ background: 'var(--cyan)', boxShadow: '0 0 10px var(--cyan)' }}
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Right Action & Hamburger */}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setAudioMuted(!audioMuted)}
+            className="font-mono text-xs px-2.5 py-1 rounded transition-colors border border-white/10 hover:border-cyan-400 hover:text-cyan-400"
+            style={{
+              color: audioMuted ? 'var(--text-muted)' : 'var(--cyan)',
+              background: audioMuted ? 'transparent' : 'rgba(0, 240, 255, 0.05)',
+            }}
           >
-            SR
-          </span>
-          <div
-            className="absolute -top-1 -right-1 w-2 h-2 rounded-full"
-            style={{
-              background: isMalfunctioning ? 'var(--danger-red)' : 'var(--neon-green)',
-              boxShadow: `0 0 6px ${isMalfunctioning ? 'var(--danger-red)' : 'var(--neon-green)'}`,
-              animation: 'pulse-cyan 1.5s ease-in-out infinite',
-            }}
-          />
-        </div>
-        <div className="hidden sm:flex flex-col">
-          <span className="font-mono text-xs" style={{ color: 'var(--cyan)', lineHeight: 1.2 }}>
-            SHARMEEN.RAUF
-          </span>
-          <span className="font-mono text-xs" style={{ color: 'var(--text-muted)', lineHeight: 1.2, fontSize: '9px' }}>
-            JARVIS HUD INTERFACE v3.0
-          </span>
+            {audioMuted ? '🔇 MUTED' : '🔊 AUDIO'}
+          </button>
+
+          {/* Mobile hamburger button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden text-white hover:text-cyan-400 focus:outline-none p-2"
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-5 flex flex-col justify-between relative">
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </div>
+          </button>
         </div>
       </div>
 
-      {/* Diagnostics */}
-      <div className="hidden md:flex items-center gap-6">
-        {[
-          { label: 'CPU', value: `${diagnostics.cpuLoad}%`, color: diagnostics.cpuLoad > 85 ? 'var(--danger-red)' : 'var(--neon-green)' },
-          { label: 'MEM', value: `${diagnostics.memoryUsed}%`, color: 'var(--cyan)' },
-          { label: 'SYNAPSE', value: diagnostics.synapses.toLocaleString(), color: 'var(--purple)' },
-          { label: 'FREQ', value: `${diagnostics.frequency}Hz`, color: 'var(--warning-amber)' },
-        ].map(({ label, value, color }) => (
-          <div key={label} className="flex flex-col items-center">
-            <span className="font-mono text-xs" style={{ color: 'var(--text-muted)', fontSize: '9px' }}>{label}</span>
-            <span className="font-mono text-xs font-bold" style={{ color }}>{value}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Right Controls */}
-      <div className="flex items-center gap-3">
-        <div className="hidden sm:flex items-center gap-2">
-          <div
-            className="w-1.5 h-1.5 rounded-full"
-            style={{
-              background: isMalfunctioning ? 'var(--danger-red)' : 'var(--neon-green)',
-              boxShadow: `0 0 4px ${isMalfunctioning ? 'var(--danger-red)' : 'var(--neon-green)'}`,
-            }}
-          />
-          <span className="font-mono text-xs" style={{ color: isMalfunctioning ? 'var(--danger-red)' : 'var(--neon-green)', fontSize: '10px' }}>
-            {isMalfunctioning ? 'MALFUNCTION' : 'ONLINE'}
-          </span>
-        </div>
-        <button
-          onClick={() => setAudioMuted(!audioMuted)}
-          className="font-mono text-xs px-3 py-1 rounded transition-colors"
-          style={{
-            border: '1px solid rgba(0, 240, 255, 0.2)',
-            color: audioMuted ? 'var(--text-muted)' : 'var(--cyan)',
-            background: audioMuted ? 'transparent' : 'rgba(0, 240, 255, 0.05)',
-          }}
-        >
-          {audioMuted ? '○ MUTED' : '◉ AUDIO'}
-        </button>
-      </div>
+      {/* Mobile Drawer Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-x-0 top-16 bg-[#0a0a14]/95 border-b border-white/5 backdrop-blur-lg z-40 py-6 px-6 lg:hidden flex flex-col gap-4"
+          >
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeModule === item.id || 
+                (item.id === 'experience' && activeModule === 'experience' && pathname === '/experience') ||
+                (item.id === 'education' && activeModule === 'experience' && pathname === '/education');
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-mono text-xs tracking-wider uppercase font-bold py-2 border-b border-white/5"
+                  style={{
+                    color: isActive ? 'var(--cyan)' : 'var(--text-secondary)',
+                  }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
 
-function SideNav({ activeModule, navigateTo }) {
-  return (
-    <nav
-      className="fixed left-0 top-12 bottom-0 z-30 flex flex-col items-center py-6 gap-2 no-select"
-      style={{
-        width: '60px',
-        background: 'rgba(5, 5, 8, 0.85)',
-        backdropFilter: 'blur(20px)',
-        borderRight: '1px solid rgba(0, 240, 255, 0.08)',
-      }}
-    >
-      {NAV_ITEMS.map((item) => {
-        const isActive = activeModule === item.id;
-        return (
-          <button
-            key={item.id}
-            onClick={() => navigateTo(item.id)}
-            title={`${item.label} — ${item.sublabel}`}
-            className="relative group flex flex-col items-center justify-center w-10 h-10 rounded transition-all duration-200"
-            style={{
-              background: isActive ? 'rgba(0, 240, 255, 0.1)' : 'transparent',
-              border: isActive ? '1px solid rgba(0, 240, 255, 0.3)' : '1px solid transparent',
-              color: isActive ? 'var(--cyan)' : 'var(--text-muted)',
-            }}
-          >
-            <span className="text-lg leading-none" style={{ textShadow: isActive ? '0 0 8px var(--cyan)' : 'none' }}>
-              {item.icon}
-            </span>
-            {/* Tooltip */}
-            <div
-              className="absolute left-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 whitespace-nowrap"
-              style={{
-                background: 'rgba(5, 5, 8, 0.95)',
-                border: '1px solid rgba(0, 240, 255, 0.2)',
-                borderRadius: '4px',
-                padding: '6px 12px',
-                zIndex: 50,
-              }}
-            >
-              <span className="font-mono text-xs block" style={{ color: 'var(--cyan)' }}>{item.label}</span>
-              <span className="font-mono text-xs block" style={{ color: 'var(--text-muted)', fontSize: '10px' }}>{item.sublabel}</span>
-            </div>
-            {/* Active indicator */}
-            {isActive && (
-              <div
-                className="absolute right-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-l"
-                style={{ background: 'var(--cyan)', boxShadow: '0 0 6px var(--cyan)' }}
-              />
-            )}
-          </button>
-        );
-      })}
-    </nav>
-  );
-}
-
-function SystemFooter({ logs }) {
-  const latest = logs.slice(0, 3);
-  return (
-    <footer
-      className="fixed bottom-0 left-0 right-0 z-30 flex items-center gap-4 px-4 py-2 no-select"
-      style={{
-        background: 'rgba(5, 5, 8, 0.9)',
-        backdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(0, 240, 255, 0.08)',
-        height: '36px',
-      }}
-    >
-      <span className="font-mono text-xs" style={{ color: 'var(--cyan)', flexShrink: 0 }}>SYS://</span>
-      <div className="flex gap-6 overflow-hidden">
-        {latest.map((log) => (
-          <span
-            key={log.id}
-            className="font-mono text-xs whitespace-nowrap"
-            style={{
-              color: log.type === 'danger' ? 'var(--danger-red)' :
-                     log.type === 'warning' ? 'var(--warning-amber)' :
-                     log.type === 'success' ? 'var(--neon-green)' :
-                     'var(--text-muted)',
-            }}
-          >
-            [{log.timestamp}] {log.message}
-          </span>
-        ))}
-      </div>
-      <div className="ml-auto flex items-center gap-3 flex-shrink-0">
-        <span className="font-mono text-xs" style={{ color: 'var(--text-muted)', fontSize: '10px' }}>
-          MARK-LXXXV OS v3.0.4
-        </span>
-      </div>
-    </footer>
-  );
-}
-
 export default function NeuralDashboard() {
-  const { activeModule, navigateTo, diagnostics, audioMuted, setAudioMuted, systemState, SYSTEM_STATES, logs, isGlitching } = useSystem();
+  const { activeModule, isGlitching } = useSystem();
   const ActiveModule = MODULE_COMPONENTS[activeModule] || NeuralIdentity;
 
   return (
@@ -222,39 +153,22 @@ export default function NeuralDashboard() {
         transition: 'filter 0.1s ease',
       }}
     >
-      <DiagnosticBar
-        diagnostics={diagnostics}
-        audioMuted={audioMuted}
-        setAudioMuted={setAudioMuted}
-        systemState={systemState}
-        SYSTEM_STATES={SYSTEM_STATES}
-      />
-      <SideNav activeModule={activeModule} navigateTo={navigateTo} />
+      <TopNavbar />
 
       {/* Main content viewport */}
-      <main
-        style={{
-          paddingLeft: '60px',
-          paddingTop: '48px',
-          paddingBottom: '36px',
-          minHeight: '100vh',
-        }}
-      >
+      <main className="max-w-7xl mx-auto px-6 pt-24 pb-12 min-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeModule}
-            initial={{ opacity: 0, y: 16, filter: 'blur(4px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: -8, filter: 'blur(2px)' }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-            className="h-full"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
           >
             <ActiveModule />
           </motion.div>
         </AnimatePresence>
       </main>
-
-      <SystemFooter logs={logs} />
     </div>
   );
 }

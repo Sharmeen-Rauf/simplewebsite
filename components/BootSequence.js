@@ -4,35 +4,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSystem } from './SystemContext';
 
 const BOOT_LINES = [
-  { delay: 0,    text: 'JARVIS.OS v3.0 — STARK INDUSTRIES CORE SYSTEM',       type: 'header' },
+  { delay: 0,    text: 'SR.PORTFOLIO v3.0 — SECURE CORE ENVIRONMENT',          type: 'header' },
   { delay: 200,  text: '=====================================',                   type: 'divider' },
-  { delay: 400,  text: 'Initializing Stark Core arc reactor...       [OK]',      type: 'ok' },
-  { delay: 700,  text: 'Connecting to satellite link...              [OK]',      type: 'ok' },
-  { delay: 900,  text: 'Calibrating holographic HUD display...       [OK]',      type: 'ok' },
-  { delay: 1100, text: 'Scanning Mark-LXXXV systems database...',                  type: 'info' },
-  { delay: 1300, text: '  >> Thrusters Module ....................... ONLINE',      type: 'data' },
-  { delay: 1450, text: '  >> Repulsor Arrays ........................ ONLINE',      type: 'data' },
-  { delay: 1600, text: '  >> Secure Firewalls ....................... LOCKED',      type: 'warning' },
+  { delay: 400,  text: 'Initializing secure portfolio modules...     [OK]',      type: 'ok' },
+  { delay: 700,  text: 'Connecting to secure satellite link...       [OK]',      type: 'ok' },
+  { delay: 900,  text: 'Calibrating interface HUD display...         [OK]',      type: 'ok' },
+  { delay: 1100, text: 'Scanning developer systems database...',                  type: 'info' },
+  { delay: 1300, text: '  >> React/Next.js Modules .................. ONLINE',      type: 'data' },
+  { delay: 1450, text: '  >> Tailwind/CSS Styles .................... ONLINE',      type: 'data' },
+  { delay: 1600, text: '  >> Git/CI-CD Pipelines .................... ONLINE',      type: 'warning' },
   { delay: 1800, text: 'Decrypting local core repositories...        [OK]',      type: 'ok' },
-  { delay: 2000, text: 'Establishing secure JARVIS interface...        [OK]',      type: 'ok' },
+  { delay: 2000, text: 'Establishing secure developer console...     [OK]',      type: 'ok' },
   { delay: 2200, text: 'Detecting network telemetry...',                           type: 'info' },
   { delay: 2400, text: '  >> Latency: 1.2 ms',                                  type: 'data' },
   { delay: 2550, text: '  >> Bandwidth: 100 Gbps',                              type: 'data' },
   { delay: 2700, text: '  >> Signal integrity: 99.8%',                          type: 'data' },
-  { delay: 2900, text: 'WARNING: Unauthorized scan on Stark servers',              type: 'danger' },
-  { delay: 3050, text: 'COUNTERMEASURES: Intruder trace active — system secure',  type: 'ok' },
+  { delay: 2900, text: 'Connection checks completed successfully',                type: 'success' },
+  { delay: 3050, text: 'System environment fully verified — secure',             type: 'ok' },
   { delay: 3200, text: 'Loading AI developer matrix...',                         type: 'info' },
   { delay: 3400, text: '  >> AI + FULL-STACK DEVELOPER ...... LOADED',           type: 'data' },
   { delay: 3550, text: '  >> AI PROMPT ENGINEER ............ LOADED',           type: 'data' },
   { delay: 3700, text: '  >> CYBERSECURITY SPECIALIST ........ LOADED',           type: 'data' },
   { delay: 3850, text: '  >> DEVOPS ENGINEER ............... LOADED',           type: 'data' },
   { delay: 4000, text: 'Synchronizing interface frequencies...',                  type: 'info' },
-  { delay: 4200, text: 'Establishing secure HUD uplink...            [OK]',      type: 'ok' },
-  { delay: 4400, text: 'Compiling Stark database records...',                     type: 'info' },
+  { delay: 4200, text: 'Establishing secure profile uplink...       [OK]',      type: 'ok' },
+  { delay: 4400, text: 'Compiling developer database records...',                 type: 'info' },
   { delay: 4700, text: '=====================================',                   type: 'divider' },
-  { delay: 4900, text: '✓ ALL ARMOR SYSTEMS DEPLOYED',                          type: 'success' },
-  { delay: 5000, text: '✓ JARVIS INTERFACE ON-LINE',                            type: 'success' },
-  { delay: 5100, text: 'WELCOME TONY. CHOOSE PROTOCOL TO INTERFACE.',             type: 'header' },
+  { delay: 4900, text: '✓ ALL SYSTEM MODULES DEPLOYED',                         type: 'success' },
+  { delay: 5000, text: '✓ DEVELOPER PORTFOLIO ON-LINE',                         type: 'success' },
+  { delay: 5100, text: 'WELCOME. CHOOSE PROTOCOL TO INTERFACE.',                 type: 'header' },
 ];
 
 const TOTAL_DURATION = 5800;
@@ -49,11 +49,13 @@ const lineColor = {
 };
 
 export default function BootSequence() {
-  const { bootSystem, goOnline, addLog } = useSystem();
+  const { bootSystem, goOnline, addLog, systemState, SYSTEM_STATES } = useSystem();
   const [visibleLines, setVisibleLines] = useState([]);
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState('pre'); // pre | running | done
   const [bypassAvailable, setBypassAvailable] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [shouldBoot, setShouldBoot] = useState(false);
 
   const startBoot = useCallback(() => {
     setPhase('running');
@@ -81,6 +83,7 @@ export default function BootSequence() {
     setTimeout(() => {
       setPhase('done');
       goOnline();
+      sessionStorage.setItem('neural-booted', 'true');
     }, TOTAL_DURATION);
   }, [bootSystem, goOnline]);
 
@@ -88,14 +91,33 @@ export default function BootSequence() {
     setPhase('done');
     setProgress(100);
     addLog('COGNITIVE BUFFER BYPASSED BY USER', 'warning');
+    sessionStorage.setItem('neural-booted', 'true');
     goOnline();
   }, [goOnline, addLog]);
 
+  // Check if already booted
+  useEffect(() => {
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      const booted = sessionStorage.getItem('neural-booted') === 'true';
+      if (!booted) {
+        setShouldBoot(true);
+      } else {
+        setPhase('done');
+        goOnline();
+      }
+    }
+  }, [goOnline]);
+
   // Auto-start boot
   useEffect(() => {
-    const t = setTimeout(startBoot, 600);
-    return () => clearTimeout(t);
-  }, [startBoot]);
+    if (shouldBoot) {
+      const t = setTimeout(startBoot, 600);
+      return () => clearTimeout(t);
+    }
+  }, [startBoot, shouldBoot]);
+
+  if (!mounted || !shouldBoot) return null;
 
   return (
     <AnimatePresence>
@@ -113,7 +135,7 @@ export default function BootSequence() {
 
           {/* Corner decorations */}
           <div className="absolute top-6 left-6 text-xs font-mono text-muted">
-            <span style={{ color: 'var(--cyan)' }}>◈</span> JARVIS OS INIT
+            <span style={{ color: 'var(--cyan)' }}>◈</span> PORTFOLIO OS INIT
           </div>
           <div className="absolute top-6 right-6 text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
             SEC LEVEL: 5 | ENCRYPTED
@@ -122,7 +144,7 @@ export default function BootSequence() {
             BUILD: {new Date().getFullYear()}.05.09-AI
           </div>
           <div className="absolute bottom-6 right-6 text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
-            ARMOR: MARK-LXXXV OS
+            PLATFORM: SECURE PORTFOLIO
           </div>
 
           {/* Main Terminal Window */}
@@ -144,7 +166,7 @@ export default function BootSequence() {
                 <div className="w-3 h-3 rounded-full" style={{ background: 'var(--neon-green)' }} />
               </div>
               <span className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
-                JARVIS HUD CONSOLE — BOOT LOADER v3.0
+                SR.PORTFOLIO — SECURE BOOT LOADER v3.0
               </span>
               <div className="ml-auto flex items-center gap-2">
                 <div
@@ -185,7 +207,7 @@ export default function BootSequence() {
             {/* Progress Bar */}
             <div className="px-6 pb-4">
               <div className="flex justify-between text-xs font-mono mb-2" style={{ color: 'var(--text-muted)' }}>
-                <span>STARK HUD CORE INITIALIZATION</span>
+                <span>SR.PORTFOLIO CORE INITIALIZATION</span>
                 <span style={{ color: 'var(--cyan)' }}>{Math.floor(progress)}%</span>
               </div>
               <div className="progress-bar">

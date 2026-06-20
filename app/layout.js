@@ -1,8 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SystemProvider } from "@/components/SystemContext";
-import CrtOverlay from "@/components/CrtOverlay";
-import NeuralBackground from "@/components/NeuralBackground";
 import BootSequence from "@/components/BootSequence";
 
 const geistSans = Geist({
@@ -16,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sharmeen Rauf — AI Neural Portfolio",
-  description: "Full-stack Developer & DevOps Engineer. Cinematic portfolio powered by the SR Neural Broadcast Core.",
+  title: "Sharmeen Rauf — Full-Stack Developer Portfolio",
+  description: "Full-stack Developer & Prompt Engineer. Clean, modern portfolio showcase.",
   icons: {
     icon: [
       { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
@@ -29,8 +27,8 @@ export const metadata = {
   },
   themeColor: '#00f0ff',
   openGraph: {
-    title: 'Sharmeen Rauf — AI Neural Portfolio',
-    description: 'Full-stack Developer & DevOps Engineer. Cinematic portfolio powered by the SR Neural Broadcast Core.',
+    title: 'Sharmeen Rauf — Full-Stack Developer Portfolio',
+    description: 'Full-stack Developer & Prompt Engineer. Clean, modern portfolio showcase.',
     type: 'website',
   },
 };
@@ -39,14 +37,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ background: '#000', overflowX: 'hidden' }}
+        style={{ background: '#080810', overflowX: 'hidden' }}
       >
         <SystemProvider>
-          {/* Atmospheric canvas particle background */}
-          <NeuralBackground />
-          {/* CRT scanline aesthetic overlays */}
-          <CrtOverlay />
-          {/* Cinematic BIOS boot sequence */}
+          {/* Cinematic BIOS boot sequence (runs once per session) */}
           <BootSequence />
           {/* Page content */}
           {children}

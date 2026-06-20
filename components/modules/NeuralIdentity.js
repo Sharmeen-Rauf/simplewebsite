@@ -93,7 +93,7 @@ export default function NeuralIdentity() {
           <div className="flex items-center gap-3">
             <div className="w-8 h-px" style={{ background: 'var(--cyan)' }} />
             <span className="font-mono text-xs tracking-widest" style={{ color: 'var(--cyan)' }}>
-              STARK HUD IDENTITY / MARK-LXXXV OS
+              DEVELOPER PROFILE / IDENTITY LOG
             </span>
           </div>
 
@@ -263,34 +263,26 @@ export default function NeuralIdentity() {
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.6))' }} />
             </div>
 
-            {/* Rotating outer ring */}
+            {/* Simple subtle ring */}
             <div
-              className="absolute -inset-4 rounded-full pointer-events-none"
+              className="absolute -inset-3 rounded-full pointer-events-none"
               style={{
-                border: '1px dashed rgba(0, 240, 255, 0.3)',
-                animation: 'neural-rotate 12s linear infinite',
-              }}
-            />
-            <div
-              className="absolute -inset-8 rounded-full pointer-events-none"
-              style={{
-                border: '1px dashed rgba(176, 38, 255, 0.2)',
-                animation: 'neural-counter-rotate 18s linear infinite',
+                border: '1px solid rgba(0, 240, 255, 0.1)',
               }}
             />
 
-            {/* Radar indicator */}
+            {/* Status indicator */}
             <div
               className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-sm font-mono text-xs"
               style={{
-                background: 'rgba(0, 0, 0, 0.9)',
-                border: '1px solid rgba(0, 240, 255, 0.4)',
+                background: 'rgba(10, 10, 20, 0.9)',
+                border: '1px solid rgba(0, 240, 255, 0.2)',
                 color: 'var(--cyan)',
                 fontSize: '9px',
                 whiteSpace: 'nowrap',
               }}
             >
-              ARMOR: MARK-LXXXV
+              STATUS: ACTIVE
             </div>
           </motion.div>
 

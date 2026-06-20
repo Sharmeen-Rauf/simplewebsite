@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const EXPERIENCES = [
   {
@@ -208,7 +209,8 @@ function TransmissionEntry({ entry, index, isExp }) {
 }
 
 export default function SignalTransmission() {
-  const [activeTab, setActiveTab] = useState('experience');
+  const pathname = usePathname();
+  const [activeTab, setActiveTab] = useState(pathname === '/education' ? 'education' : 'experience');
 
   const items = activeTab === 'experience' ? EXPERIENCES : EDUCATION;
 

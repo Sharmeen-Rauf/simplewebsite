@@ -66,8 +66,8 @@ export function SystemProvider({ children, initialModule = MODULES.IDENTITY }) {
 
   const goOnline = useCallback(() => {
     setSystemState(SYSTEM_STATES.ONLINE);
-    addLog('NEURAL CORE FULLY OPERATIONAL', 'success');
-    addLog('AI CONSCIOUSNESS SYNCHRONIZED', 'success');
+    addLog('SYSTEM CORE FULLY OPERATIONAL', 'success');
+    addLog('PORTFOLIO MODULES SYNCHRONIZED', 'success');
     addLog(`ACTIVE MODULE: ${activeModule.toUpperCase()}`, 'info');
   }, [activeModule, addLog]);
 

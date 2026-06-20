@@ -6,19 +6,19 @@ import { useSystem } from '../SystemContext';
 const COMMANDS = {
   help: () => [
     { text: '╔════════════════════════════════════╗', type: 'header' },
-    { text: '║   SR JARVIS CORE — COMMAND INDEX   ║', type: 'header' },
+    { text: '║   SR PORTFOLIO — COMMAND INDEX     ║', type: 'header' },
     { text: '╚════════════════════════════════════╝', type: 'header' },
     { text: '', type: 'blank' },
-    { text: '  identity      — Load Stark identity core logs', type: 'cmd' },
-    { text: '  about         — About Stark JARVIS OS', type: 'cmd' },
-    { text: '  projects      — List Stark archive nodes', type: 'cmd' },
-    { text: '  skills        — Display active HUD system specs', type: 'cmd' },
-    { text: '  experience    — Decrypt mission log history', type: 'cmd' },
-    { text: '  contact       — Open comm uplink console', type: 'cmd' },
+    { text: '  identity      — Load developer identity logs', type: 'cmd' },
+    { text: '  about         — About developer portfolio platform', type: 'cmd' },
+    { text: '  projects      — List portfolio project nodes', type: 'cmd' },
+    { text: '  skills        — Display developer skills mapping', type: 'cmd' },
+    { text: '  experience    — Decrypt experience log history', type: 'cmd' },
+    { text: '  contact       — Open communication uplink console', type: 'cmd' },
     { text: '  clear         — Flush display buffer', type: 'cmd' },
     { text: '  hack          — ⚠ Initiate security breach simulation', type: 'cmd' },
-    { text: '  self-destruct — ⚠⚠ Trigger armor override protocol', type: 'cmd' },
-    { text: '  ping          — Test Stark satellite latency', type: 'cmd' },
+    { text: '  self-destruct — ⚠⚠ Trigger console override protocol', type: 'cmd' },
+    { text: '  ping          — Test platform gateway latency', type: 'cmd' },
     { text: '  whoami        — Identity verification scan', type: 'cmd' },
     { text: '  matrix        — Activate matrix mode', type: 'cmd' },
     { text: '', type: 'blank' },
@@ -26,23 +26,23 @@ const COMMANDS = {
   ],
 
   identity: () => [
-    { text: '> LOADING HUD IDENTITY RECORD...', type: 'info' },
-    { text: '> DECRYPTING STARK ARMOR SYSTEM SUITE', type: 'info' },
+    { text: '> LOADING PROFILE IDENTITY RECORD...', type: 'info' },
+    { text: '> DECRYPTING PORTFOLIO CORE SYSTEM SUITE', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  NAME:         SHARMEEN RAUF', type: 'data' },
-    { text: '  ARMOR:        MARK-LXXXV OS', type: 'data' },
+    { text: '  PLATFORM:     SECURE PORTFOLIO v3.0', type: 'data' },
     { text: '  CLEARANCE:    LEVEL-5 / FULL ACCESS', type: 'data' },
     { text: '  ROLE:         AI + FULL-STACK DEVELOPER & PROMPT ENG', type: 'data' },
     { text: '  SPECIALITY:   AI / WEB DESIGN / CYBERSEC / DEVOPS', type: 'data' },
     { text: '  INSTITUTION:  DHA SUFFAH UNIVERSITY', type: 'data' },
     { text: '  LOCATION:     KARACHI, PAKISTAN', type: 'data' },
-    { text: '  STATUS:       ◉ ONLINE (SYSTEM ENERGIZED)', type: 'ok' },
+    { text: '  STATUS:       ◉ ONLINE (SYSTEM ACTIVE)', type: 'ok' },
   ],
 
   about: () => [
-    { text: '> JARVIS HUD CONSOLE v3.0.4', type: 'header' },
+    { text: '> SR.PORTFOLIO CONSOLE v3.0.4', type: 'header' },
     { text: '', type: 'blank' },
-    { text: '  This terminal interfaces with the Stark Industries HUD OS of', type: 'info' },
+    { text: '  This terminal interfaces with the secure portfolio platform of', type: 'info' },
     { text: '  Sharmeen Rauf — AI + Full-stack developer, prompt engineer, and', type: 'info' },
     { text: '  cybersecurity specialist with 4+ years of experience building', type: 'info' },
     { text: '  AI-driven, scalable web applications and automated CRM/ERPs.', type: 'info' },
@@ -52,7 +52,7 @@ const COMMANDS = {
   ],
 
   projects: () => [
-    { text: '> SCANNING STARK ARCHIVES...', type: 'info' },
+    { text: '> SCANNING PROJECT ARCHIVES...', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  [PROJ-001] PitchRadar AI (B2B SaaS Lead Gen) ..... LIVE', type: 'ok' },
     { text: '  [PROJ-002] CoreTECH Solar ERP (Enterprise ERP) ... PRODUCTION', type: 'ok' },
@@ -65,11 +65,11 @@ const COMMANDS = {
     { text: '  [PROJ-009] Naye Talaash (Pakistan Tourism) ........ LIVE', type: 'ok' },
     { text: '  [PROJ-010] EscaBiz B2B (Staff Aug & Lead Gen) ..... LIVE', type: 'ok' },
     { text: '', type: 'blank' },
-    { text: '  10 NODES FOUND | Navigate to ARCHIVES module for full details', type: 'info' },
+    { text: '  10 NODES FOUND | Navigate to PROJECTS page for full details', type: 'info' },
   ],
 
   skills: () => [
-    { text: '> LOADING STARK HUD FREQUENCY MAP...', type: 'info' },
+    { text: '> LOADING DEVELOPER FREQUENCY MAP...', type: 'info' },
     { text: '', type: 'blank' },
     { text: '  FRONTEND CLUSTER:', type: 'header' },
     { text: '    React [92%] | Next.js [88%] | Vue [80%] | TS [85%] | Tailwind [90%]', type: 'data' },
@@ -112,7 +112,7 @@ const COMMANDS = {
   ],
 
   ping: () => [
-    { text: '> PINGING STARK CORE UPLINK...', type: 'info' },
+    { text: '> PINGING PORTFOLIO CORE UPLINK...', type: 'info' },
     { text: `  LATENCY: ${Math.floor(1 + Math.random() * 15)}ms`, type: 'ok' },
     { text: '  UPLINK:  STABLE', type: 'ok' },
     { text: '  PACKET LOSS: 0%', type: 'ok' },
@@ -130,10 +130,10 @@ const COMMANDS = {
     { text: '01010011 01101000 01100001 01110010', type: 'matrix' },
     { text: '01101101 01100101 01100101 01101110', type: 'matrix' },
     { text: '00100000 01010010 01100001 01110101', type: 'matrix' },
-    { text: '01100110 00100000 01010011 01010100', type: 'matrix' },
-    { text: '01000001 01010010 01001011 00100000', type: 'matrix' },
+    { text: '01100110 00100000 01000001 01000011', type: 'matrix' },
+    { text: '01010100 01001001 01010110 01000101', type: 'matrix' },
     { text: '', type: 'blank' },
-    { text: '  "SHARMEEN RAUF STARK" — decoded', type: 'ok' },
+    { text: '  "SHARMEEN RAUF ACTIVE" — decoded', type: 'ok' },
   ],
 
   hack: 'HACK_MODE',
@@ -154,7 +154,7 @@ const typeStyle = {
 };
 
 const INITIAL_LINES = [
-  { text: 'JARVIS.OS v3.0 — STARK INDUSTRIES HUD CONSOLE', type: 'header' },
+  { text: 'SR.PORTFOLIO v3.0 — SECURE CONSOLE INTERFACE', type: 'header' },
   { text: 'Copyright © 2026 Sharmeen Rauf | All satellite uplinks secure', type: 'info' },
   { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', type: 'header' },
   { text: 'Type "help" to list all active system protocols.', type: 'info' },
@@ -275,11 +275,11 @@ export default function AiTerminal() {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-px" style={{ background: 'var(--neon-green)' }} />
           <span className="font-mono text-xs tracking-widest" style={{ color: 'var(--neon-green)' }}>
-            JARVIS CONSOLE / STARK TERMINAL
+            DEVELOPER CONSOLE / TERMINAL INTERFACE
           </span>
         </div>
         <h2 className="font-display font-black" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-          JARVIS <span style={{ color: 'var(--neon-green)', textShadow: '0 0 20px var(--neon-green)' }}>CONSOLE</span>
+          DEVELOPER <span style={{ color: 'var(--neon-green)', textShadow: '0 0 20px var(--neon-green)' }}>CONSOLE</span>
         </h2>
       </motion.div>
 
@@ -309,7 +309,7 @@ export default function AiTerminal() {
             ))}
           </div>
           <span className="font-mono text-xs" style={{ color: 'rgba(0,255,136,0.5)' }}>
-            tony@stark-hud: ~ jarvis v3.0
+            sharmeen@portfolio-hub: ~ console v3.0
           </span>
           <div className="ml-auto flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--neon-green)', boxShadow: '0 0 4px var(--neon-green)', animation: 'pulse-cyan 1.5s ease-in-out infinite' }} />
@@ -340,7 +340,7 @@ export default function AiTerminal() {
           style={{ borderTop: '1px solid rgba(0, 255, 136, 0.1)' }}
         >
           <span className="font-mono text-sm" style={{ color: 'var(--cyan)', flexShrink: 0 }}>
-            jarvis@stark:~$
+            sharmeen@portfolio:~$
           </span>
           <input
             ref={inputRef}

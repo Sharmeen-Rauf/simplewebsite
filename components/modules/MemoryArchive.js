@@ -450,11 +450,11 @@ export default function MemoryArchive() {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-px" style={{ background: 'var(--purple)' }} />
           <span className="font-mono text-xs tracking-widest" style={{ color: 'var(--purple)' }}>
-            STARK ARCHIVES / PROJECT LOG
+            PROJECT LOG / ARCHIVES
           </span>
         </div>
         <h2 className="font-display font-black mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--text-primary)' }}>
-          STARK<span style={{ color: 'var(--purple)', textShadow: '0 0 20px var(--purple)' }}> ARCHIVES</span>
+          PROJECT<span style={{ color: 'var(--purple)', textShadow: '0 0 20px var(--purple)' }}> ARCHIVES</span>
         </h2>
         <p className="font-mono text-sm" style={{ color: 'var(--text-secondary)' }}>
           {PROJECTS.length} active production nodes verified. Select a record to decrypt structural metrics and live logs.
@@ -498,7 +498,7 @@ export default function MemoryArchive() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-1.5 h-6 bg-cyan-400" />
           <h3 className="font-display text-base font-bold tracking-wider" style={{ color: 'var(--text-primary)' }}>
-            STARK OS — SHARED FRONTEND DIAGNOSTICS & ENGINE SPECS
+            PORTFOLIO OS — SHARED FRONTEND DIAGNOSTICS & ENGINE SPECS
           </h3>
         </div>
 
