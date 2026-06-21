@@ -153,13 +153,13 @@ export default function NeuralIdentity() {
               <span>EXPLORE PROJECTS</span>
             </Link>
             <a
-              href="/sharmeen_rauf_cv.pdf"
+              href="https://docs.google.com/document/d/1Tyn5EeDTBW9MTtnbhV8YoJlQZs38LQapkl9iZFeMD18/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost flex items-center justify-center"
               style={{ padding: '12px 24px', borderColor: 'var(--purple)', color: 'var(--purple)' }}
             >
-              DOWNLOAD CV
+              VIEW CV
             </a>
             <Link
               href="/contactus"
